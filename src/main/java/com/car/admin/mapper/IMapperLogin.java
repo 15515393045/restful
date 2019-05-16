@@ -1,9 +1,7 @@
 package com.car.admin.mapper;
 
 import com.car.admin.dto.User;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 public interface IMapperLogin {
 
@@ -15,4 +13,6 @@ public interface IMapperLogin {
     @Select("select id,account,password from tbl_login where account=#{account}")
     User loginUser(User user);
 
+    @Insert("insert into tbl_login (Account,Password) values (#{account},#{password})")
+    void addUser(User user);
 }

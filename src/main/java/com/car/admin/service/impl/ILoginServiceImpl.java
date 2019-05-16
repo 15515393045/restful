@@ -9,17 +9,13 @@ import com.car.admin.util.SystemCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 @Service("loginService")
 public class ILoginServiceImpl extends ServerBase implements ILoginService {
 
     @Autowired
     private IMapperLogin mapperLogin;
-
-
-
 
 
     //登录
@@ -34,11 +30,12 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
             return ResponseResult.fail(SystemCount.LOGIN_NULL);
         }
 
-        //验证账号是否存在
-        User UserDB = mapperLogin.loginUser(user);
-        if(!account.equals(UserDB.getAccount())){
-            return ResponseResult.fail(SystemCount.ACCOUNT_ERROR);
-        }
+            //验证账号是否存在
+            User UserDB = mapperLogin.loginUser(user);
+            if (UserDB == null) {
+                return ResponseResult.fail(SystemCount.ACCOUNT_ERROR);
+            }
+
 
         //验证密码是否正确
         if(!password.equals(UserDB.getPassword())){
@@ -52,19 +49,27 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
     @Override
     public ResponseResult addUser(User user) {
 
-        //验证账号是否存在
-        User userDB = mapperLogin.loginUser(user);
-        if(user.getAccount().equals(userDB.getAccount())){
-            return ResponseResult.fail("账号已存在请重新输入");
-        }
+            User userDB = mapperLogin.loginUser(user);
 
-        if(user.getAccount().length() >= 4){
-            return ResponseResult.fail("账号的长度不能低于四位");
-        }
+            if(userDB == null){
+
+                if(user.getAccount().length() < 4){
+                    return ResponseResult.fail("账号的长度不能低于四位");
+                }
+
+                //增加
+                mapperLogin.addUser(user);
+
+            }else {
+
+                if (user.getAccount().equals(userDB.getAccount())) {
+                    return ResponseResult.fail("账号已存在请重新输入");
+                }
+
+            }
 
 
-
-        return null;
+        return ResponseResult.success();
     }
 
 

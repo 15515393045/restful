@@ -17,5 +17,4 @@ public class User {
     @NotNull(message = "密码不能为空")
     @NotBlank(message = "密码不能为空")
     private String password;
-
 }
