@@ -18,6 +18,10 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
     @Autowired
     private IMapperLogin mapperLogin;
 
+
+
+
+
     //登录
     @Override
     public ResponseResult UserLogin(User user){
@@ -42,6 +46,25 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
         }
 
         return ResponseResult.success();
+    }
+
+    //注册
+    @Override
+    public ResponseResult addUser(User user) {
+
+        //验证账号是否存在
+        User userDB = mapperLogin.loginUser(user);
+        if(user.getAccount().equals(userDB.getAccount())){
+            return ResponseResult.fail("账号已存在请重新输入");
+        }
+
+        if(user.getAccount().length() >= 4){
+            return ResponseResult.fail("账号的长度不能低于四位");
+        }
+
+
+
+        return null;
     }
 
 
