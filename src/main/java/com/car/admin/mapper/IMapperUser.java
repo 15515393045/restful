@@ -4,6 +4,7 @@ import com.car.admin.dto.UserBean;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IMapperUser {
 
@@ -30,4 +31,6 @@ public interface IMapperUser {
 
     //通过xml文件进行批量删除
     void batchDeleteUser(List<Integer> idsList);
+
+    void batchInsertUser(List<UserBean> userList);
 }

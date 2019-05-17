@@ -4,6 +4,9 @@ import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ServerResponse;
 
+import java.util.List;
+import java.util.Map;
+
 public interface IServiceUser {
 
     ServerResponse findUser();
@@ -17,4 +20,6 @@ public interface IServiceUser {
     ResponseResult deleteUser(Integer id);
 
     ResponseResult batchDeleteUser(String ids);
+
+    ResponseResult batchInsertUser(List<UserBean> userList);
 }

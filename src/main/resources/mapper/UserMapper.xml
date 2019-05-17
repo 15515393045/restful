@@ -10,4 +10,12 @@
         </foreach>
     </delete>
 
+    <!--批量插入-->
+    <insert id="batchInsertUser" parameterType="list">
+        insert into tbl_user (Name,Age) values
+        <foreach collection="list" item="user" separator="," >
+            (#{user.name},#{user.age})
+        </foreach>
+    </insert>
+
 </mapper>

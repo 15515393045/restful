@@ -9,6 +9,7 @@ import com.car.admin.service.IServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,6 +94,14 @@ public class IServiceUserImpl implements IServiceUser {
 
             mapperUser.batchDeleteUser(idsList);
         }
+
+        return ResponseResult.success();
+    }
+
+    @Override
+    public ResponseResult batchInsertUser(List<UserBean> userList) {
+
+        mapperUser.batchInsertUser(userList);
 
         return ResponseResult.success();
     }
