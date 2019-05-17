@@ -9,4 +9,8 @@ public interface ILoginService {
     ResponseResult UserLogin(User user);
 
     ResponseResult addUser(User user);
+
+    ResponseResult openUser(User user);
+
+    ResponseResult applyUser(User user);
 }

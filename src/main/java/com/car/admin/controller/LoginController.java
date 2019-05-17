@@ -40,4 +40,20 @@ public class LoginController{
         return loginService.addUser(user);
     }
 
+    //开户
+    @PostMapping("open")
+    public ResponseResult openUser(@Valid User user, BindingResult result){
+
+        if(result.hasErrors()){
+            return ResponseResult.fail(1,result.getFieldError().getDefaultMessage());
+        }
+
+        return loginService.openUser(user);
+    }
+
+    //申请
+    @PostMapping("apply")
+    public ResponseResult applyUser(User user){
+        return loginService.applyUser(user);
+    }
 }

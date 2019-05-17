@@ -17,4 +17,9 @@ public class User {
     @NotNull(message = "密码不能为空")
     @NotBlank(message = "密码不能为空")
     private String password;
+
+    private String token;
+
+    //状态
+    private Integer status;
 }
