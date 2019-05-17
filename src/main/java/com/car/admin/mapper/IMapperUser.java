@@ -27,4 +27,5 @@ public interface IMapperUser {
 
     @Delete("delete from tbl_user where id = #{value}")
     void deleteUser(Integer id);
+
 }

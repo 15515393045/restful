@@ -4,6 +4,7 @@ import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ServerResponse;
 import com.car.admin.service.IServiceUser;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -86,5 +87,7 @@ public class UserController {
 
         return serviceUser.deleteUser(id);
     }
+
+
 
 }
