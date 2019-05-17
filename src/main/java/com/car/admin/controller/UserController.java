@@ -4,7 +4,6 @@ import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ServerResponse;
 import com.car.admin.service.IServiceUser;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -84,10 +83,14 @@ public class UserController {
     //删除
     @DeleteMapping("delete/{id}")
     public ResponseResult deleteUser(@PathVariable(value = "id") @Valid Integer id){
-
+        System.out.println();
         return serviceUser.deleteUser(id);
     }
 
-
+    //批量删除
+    @DeleteMapping("batch")
+    public ResponseResult batchDeleteUser(String ids){
+        return serviceUser.batchDeleteUser(ids);
+    }
 
 }

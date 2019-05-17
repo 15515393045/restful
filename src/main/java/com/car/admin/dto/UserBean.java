@@ -24,4 +24,7 @@ public class UserBean implements Serializable {
     @NotNull(message = "年龄不能为空1" )
     private Integer age;
 
+
+    private String ids;
+
 }

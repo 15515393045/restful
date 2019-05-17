@@ -28,4 +28,6 @@ public interface IMapperUser {
     @Delete("delete from tbl_user where id = #{value}")
     void deleteUser(Integer id);
 
+    //通过xml文件进行批量删除
+    void batchDeleteUser(List<Integer> idsList);
 }

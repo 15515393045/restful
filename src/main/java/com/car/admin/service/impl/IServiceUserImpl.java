@@ -80,5 +80,22 @@ public class IServiceUserImpl implements IServiceUser {
         return ResponseResult.success();
     }
 
+    @Override
+    public ResponseResult batchDeleteUser(String ids) {
+
+        if(ids != null){
+            String[] idsArr = ids.split(",");
+            List<Integer> idsList = new ArrayList<>();
+
+            for (String s : idsArr) {
+                idsList.add(Integer.parseInt(s));
+            }
+
+            mapperUser.batchDeleteUser(idsList);
+        }
+
+        return ResponseResult.success();
+    }
+
 
 }

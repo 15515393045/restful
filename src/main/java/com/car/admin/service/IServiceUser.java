@@ -16,4 +16,5 @@ public interface IServiceUser {
 
     ResponseResult deleteUser(Integer id);
 
+    ResponseResult batchDeleteUser(String ids);
 }
