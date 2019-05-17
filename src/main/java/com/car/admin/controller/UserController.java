@@ -99,27 +99,7 @@ public class UserController {
     //批量插入
     @PostMapping("batchAdd")
     public ResponseResult batchInsertUser(@RequestBody Map userDate){
-        //根据键获取该键所对应的值,为一个list集合
-        List<Map<String,String>> list = (List<Map<String, String>>) userDate.get("data");
-
-        //定义一个集合用于批量插入
-        List<UserBean> userList = new ArrayList<>();
-
-            //对获取到的list集合进行验证
-            if(list.size() > 0 && list != null){
-                //循环拿到的list集合
-                for (Map<String, String> map : list) {
-                    //初始化对象并进行赋值
-                    UserBean userBean = new UserBean();
-                    userBean.setName(map.get("name"));
-                    userBean.setAge(map.get("age"));
-
-                    //将赋过值的对象放入自定义的list集合传到xml文件中去
-                    userList.add(userBean);
-                }
-            }
-
-        return serviceUser.batchInsertUser(userList);
+        return serviceUser.batchInsertUser(userDate);
     }
 
 }

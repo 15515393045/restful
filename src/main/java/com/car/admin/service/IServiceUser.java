@@ -21,5 +21,5 @@ public interface IServiceUser {
 
     ResponseResult batchDeleteUser(String ids);
 
-    ResponseResult batchInsertUser(List<UserBean> userList);
+    ResponseResult batchInsertUser(Map userDate);
 }
