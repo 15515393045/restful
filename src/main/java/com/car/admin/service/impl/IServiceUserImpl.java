@@ -6,6 +6,7 @@ import com.car.admin.enums.ServerResponse;
 import com.car.admin.mapper.IMapperUser;
 import com.car.admin.request.UserRequest;
 import com.car.admin.service.IServiceUser;
+import com.car.admin.util.CacheManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,12 +27,27 @@ public class IServiceUserImpl implements IServiceUser {
     @Transactional(readOnly = true)
     @Override
     public ServerResponse findUser() {
-        List<UserBean> user = mapperUser.findUser();
 
-        //Po转换Vo
-        List<UserRequest> userRequest = getUserRequests(user);
+        //1. 获取缓存中的方法，
+        CacheManager instance = CacheManager.getInstance();
 
-        return ServerResponse.success(userRequest);
+        //2. 获取指定的对象存入缓存
+        Object userList = instance.getObj("userList");
+
+        //判断第一次缓存对象为空,将查询的数据放入缓存
+        if(userList == null){
+            List<UserBean> user = mapperUser.findUser();
+            //Po转换Vo
+            List<UserRequest> userRequest = getUserRequests(user);
+            //将数据放入缓存
+            instance.putObj("userList",userRequest);
+
+            return ServerResponse.success(userRequest);
+        }
+
+        //第二次缓存不为空,则直接返回缓存中的数据
+        return ServerResponse.success(userList);
+
     }
     private List<UserRequest> getUserRequests(List<UserBean> user) {
         List<UserRequest> userRequest = new ArrayList<>();
@@ -54,7 +70,7 @@ public class IServiceUserImpl implements IServiceUser {
     public ResponseResult addUser(UserBean user) {
 
             mapperUser.addUser(user);
-
+        CacheManager.getInstance().remove("userList");
         return ResponseResult.success();
         }
 
@@ -63,7 +79,7 @@ public class IServiceUserImpl implements IServiceUser {
     public ResponseResult updateUser(UserBean user) {
 
         mapperUser.updateUser(user);
-
+        CacheManager.getInstance().remove("userList");
         return ResponseResult.success();
     }
 
@@ -71,15 +87,24 @@ public class IServiceUserImpl implements IServiceUser {
     @Override
     public ResponseResult queryUserId(Integer userId) {
 
-        UserBean userBean = mapperUser.queryUserId(userId);
+        CacheManager instance = CacheManager.getInstance();
 
-        return ResponseResult.success(userBean);
+        Object idUser = instance.getObj("userId");
+
+        if(idUser == null){
+            UserBean userBean = mapperUser.queryUserId(userId);
+            instance.putObj("userId",userBean);
+            return ResponseResult.success(userBean);
+            }
+
+        return ResponseResult.success(idUser);
     }
 
 
     @Override
     public ResponseResult deleteUser(Integer id) {
         mapperUser.deleteUser(id);
+        CacheManager.getInstance().remove("userList");
         return ResponseResult.success();
     }
 
@@ -96,7 +121,7 @@ public class IServiceUserImpl implements IServiceUser {
 
             mapperUser.batchDeleteUser(idsList);
         }
-
+        CacheManager.getInstance().remove("userList");
         return ResponseResult.success();
     }
 
@@ -126,6 +151,7 @@ public class IServiceUserImpl implements IServiceUser {
 
         mapperUser.batchInsertUser(userList);
 
+        CacheManager.getInstance().remove("userList");
         return ResponseResult.success();
     }
 
@@ -133,18 +159,28 @@ public class IServiceUserImpl implements IServiceUser {
     @Override
     public ResponseResult queryUserPage(UserBean userBean, Integer start, Integer length) {
 
-        //获取总条数
-        Long listCount = mapperUser.queryCountList(userBean);
-        //设置总条数
-        userBean.setTotalCount(listCount);
-        //调用计算方法
-        userBean.calculatePage();
-        //获取分页列表
-        List<UserBean> userBeans = mapperUser.queryUserPage(userBean, start, length);
-        //Po转Vo
-        List<UserRequest> userRequests = getUserRequests(userBeans);
+        CacheManager instance = CacheManager.getInstance();
 
-        return ResponseResult.success(userRequests);
+        Object pageUser = instance.getObj("pageUser");
+
+        if(pageUser == null){
+            //获取总条数
+            Long listCount = mapperUser.queryCountList(userBean);
+            //设置总条数
+            userBean.setTotalCount(listCount);
+            //调用计算方法
+            userBean.calculatePage();
+            //获取分页列表
+            List<UserBean> userBeans = mapperUser.queryUserPage(userBean, start, length);
+            //Po转Vo
+            List<UserRequest> userRequests = getUserRequests(userBeans);
+            //将数据存入缓存
+            instance.putObj("pageUser",userRequests);
+
+            return ResponseResult.success(userRequests);
+        }
+
+        return ResponseResult.success(pageUser);
     }
 
 

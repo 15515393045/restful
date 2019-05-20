@@ -5,7 +5,7 @@ public class CacheManager {
     private static volatile CacheManager instance;
     private static Object lock = new Object();
     private CacheManager(){
-         bc = new BaseCache("fh_shop", 24*60*60);
+         bc = new BaseCache("shop_product", 24*60*60);
     }
 
     public static CacheManager getInstance(){

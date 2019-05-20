@@ -14,7 +14,7 @@ public interface IMapperUser {
             @Result(column = "Name",property = "name"),
             @Result(column = "Age",property = "age")
     })
-    @Select("select name,age from tbl_user")
+    @Select("select id,name,age from tbl_user")
     List<UserBean> findUser();
 
     @Insert("insert into tbl_user (Name,Age) values (#{name},#{age})")
