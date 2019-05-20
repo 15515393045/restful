@@ -39,6 +39,7 @@ public class IServiceUserImpl implements IServiceUser {
         for (UserBean userBean : user) {
             //在循环里面初始化VO->(UserRequest)
             UserRequest userInfo = new UserRequest();
+            userInfo.setId(userBean.getId());
             userInfo.setAge(userBean.getAge());
             userInfo.setName(userBean.getName());
             //放入集合
@@ -66,7 +67,7 @@ public class IServiceUserImpl implements IServiceUser {
         return ResponseResult.success();
     }
 
-
+    @Transactional(readOnly = true)
     @Override
     public ResponseResult queryUserId(Integer userId) {
 
@@ -126,6 +127,24 @@ public class IServiceUserImpl implements IServiceUser {
         mapperUser.batchInsertUser(userList);
 
         return ResponseResult.success();
+    }
+
+    //分页查询
+    @Override
+    public ResponseResult queryUserPage(UserBean userBean, Integer start, Integer length) {
+
+        //获取总条数
+        Long listCount = mapperUser.queryCountList(userBean);
+        //设置总条数
+        userBean.setTotalCount(listCount);
+        //调用计算方法
+        userBean.calculatePage();
+        //获取分页列表
+        List<UserBean> userBeans = mapperUser.queryUserPage(userBean, start, length);
+        //Po转Vo
+        List<UserRequest> userRequests = getUserRequests(userBeans);
+
+        return ResponseResult.success(userRequests);
     }
 
 

@@ -31,6 +31,13 @@ public interface IMapperUser {
 
     //通过xml文件进行批量删除
     void batchDeleteUser(List<Integer> idsList);
+    //批量插入
+    void batchInsertUser(@Param("") List<UserBean> userList);
 
-    void batchInsertUser(List<UserBean> userList);
+    //获取总条数
+    @Select("select count(*) from tbl_user")
+    Long queryCountList(UserBean userBean);
+    //获取分页列表
+    @Select("select t.* from (select * from tbl_user) t limit #{start},#{length}")
+    List<UserBean> queryUserPage(UserBean userBean,@Param("start") Integer start,@Param("length") Integer length);
 }

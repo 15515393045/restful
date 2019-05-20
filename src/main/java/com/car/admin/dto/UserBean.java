@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
-public class UserBean implements Serializable {
+public class UserBean extends Page implements Serializable {
 
     private static final long serialVersionUID = 2138520763556208965L;
 
