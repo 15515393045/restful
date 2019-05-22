@@ -142,7 +142,8 @@ public class IServiceUserImpl implements IServiceUser {
                 //初始化对象并进行赋值
                 UserBean userBean = new UserBean();
                 userBean.setName(map.get("name"));
-                userBean.setAge(map.get("age"));
+                //转换类型
+                userBean.setAge(Integer.parseInt(map.get("age")));
 
                 //将赋过值的对象放入自定义的list集合传到xml文件中去
                 userList.add(userBean);
@@ -157,13 +158,8 @@ public class IServiceUserImpl implements IServiceUser {
 
     //分页查询
     @Override
-    public ResponseResult queryUserPage(UserBean userBean, Integer start, Integer length) {
+    public ResponseResult queryUserPage(UserBean userBean) {
 
-        CacheManager instance = CacheManager.getInstance();
-
-        Object pageUser = instance.getObj("pageUser");
-
-        if(pageUser == null){
             //获取总条数
             Long listCount = mapperUser.queryCountList(userBean);
             //设置总条数
@@ -171,16 +167,11 @@ public class IServiceUserImpl implements IServiceUser {
             //调用计算方法
             userBean.calculatePage();
             //获取分页列表
-            List<UserBean> userBeans = mapperUser.queryUserPage(userBean, start, length);
+            List<UserBean> userBeans = mapperUser.queryUserPage(userBean);
             //Po转Vo
             List<UserRequest> userRequests = getUserRequests(userBeans);
-            //将数据存入缓存
-            instance.putObj("pageUser",userRequests);
 
             return ResponseResult.success(userRequests);
-        }
-
-        return ResponseResult.success(pageUser);
     }
 
 

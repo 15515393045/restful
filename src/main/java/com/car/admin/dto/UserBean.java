@@ -20,12 +20,11 @@ public class UserBean extends Page implements Serializable {
     @NotBlank(message = "名字不能为空2")
     private String name;
 
-    //如果为空则返回message的值   不能为null，但可以为empty
-    @NotNull(message = "年龄不能为空1")
-    //只能作用在String上，不能为null，而且调用trim()后，长度必须大于0
-    @NotBlank(message = "年龄不能为空2")
-    private String age;
+    private Integer age;
 
+    private Integer minAge;
+
+    private Integer maxAge;
 
     private String ids;
 

@@ -13,5 +13,5 @@ public class UserRequest implements Serializable {
 
     private String name;
 
-    private String age;
+    private Integer age;
 }

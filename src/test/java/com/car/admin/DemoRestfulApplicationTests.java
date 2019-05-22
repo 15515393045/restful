@@ -11,7 +11,18 @@ public class DemoRestfulApplicationTests {
 
     @Test
     public void contextLoads() {
-        System.out.println("aaa");
+
+
+        int a = 0;
+        float b = (float) 3.14;
+
+        double c = 3.15;
+
+        String name = "";
+
+        a = Integer.parseInt(name);
+
+        System.out.println(a);
     }
 
 }

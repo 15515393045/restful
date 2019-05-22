@@ -23,5 +23,5 @@ public interface IServiceUser {
 
     ResponseResult batchInsertUser(Map userDate);
 
-    ResponseResult queryUserPage(UserBean userBean, Integer start, Integer length);
+    ResponseResult queryUserPage(UserBean userBean);
 }

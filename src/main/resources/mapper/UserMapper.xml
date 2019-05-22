@@ -2,6 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.car.admin.mapper.IMapperUser" >
 
+    <sql id="whereInfo">
+            <where>
+                <if test="name !=null and name !='' ">
+                    Name like concat('%',#{name},'%')
+                </if>
+                <if test="minAge != '' and minAge > 0">
+                    and age >= #{minAge}
+                </if>
+                <if test="maxAge != '' and maxAge > 0">
+                    and age &lt;= #{maxAge}
+                </if>
+            </where>
+    </sql>
+
     <!--Restful风格接口批量删除-->
     <delete id="batchDeleteUser">
         delete from tbl_user where id in
@@ -10,6 +24,22 @@
         </foreach>
     </delete>
 
+    <!--获取总条数-->
+    <select id="queryCountList" resultType="long" parameterType="com.car.admin.dto.UserBean">
+        select count(*) from tbl_user
+        <include refid="whereInfo"></include>
+    </select>
+
+    <!--条件查询-->
+    <select id="queryUserPage" resultType="com.car.admin.dto.UserBean" parameterType="com.car.admin.dto.UserBean">
+        select t.* from
+        (select * from tbl_user
+        <include refid="whereInfo"></include>
+        order by id desc
+        ) t
+        limit #{startPos},#{pageSize}
+    </select>
+
     <!--批量插入-->
     <insert id="batchInsertUser" parameterType="list">
         insert into tbl_user (Name,Age) values
@@ -17,5 +47,7 @@
             (#{user.name},#{user.age})
         </foreach>
     </insert>
+
+
 
 </mapper>

@@ -102,7 +102,7 @@ public class UserController {
 
     //分页查询
     @GetMapping("page")
-    public ResponseResult queryUserPage(UserBean userBean, Integer start, Integer length){
-        return serviceUser.queryUserPage(userBean, start, length);
+    public ResponseResult queryUserPage(UserBean userBean){
+        return serviceUser.queryUserPage(userBean);
     }
 }
