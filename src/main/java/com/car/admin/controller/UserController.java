@@ -4,16 +4,25 @@ import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ServerResponse;
 import com.car.admin.service.IServiceUser;
+import com.car.admin.util.CosUploadUtil;
+import com.car.admin.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 
 @RestController
 @RequestMapping("user")
 public class UserController {
+
+    @Autowired
+    private HttpServletRequest request;
 
     @Autowired
     private IServiceUser serviceUser;
@@ -24,9 +33,9 @@ public class UserController {
         return serviceUser.findUser();
     }
 
-        //增加
-     //@Valid
-    //用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message                    的错误提示信息。结合@NotNull来使用
+    //增加
+    //@Valid
+    //用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message的错误提示信息。结合@NotNull来使用
     @PostMapping("add")
     public ResponseResult addUser(@RequestBody @Valid UserBean user,BindingResult results){
 
@@ -104,5 +113,27 @@ public class UserController {
     @GetMapping("page")
     public ResponseResult queryUserPage(UserBean userBean){
         return serviceUser.queryUserPage(userBean);
+    }
+
+    //图片上传
+    @PostMapping("file")
+    public ResponseResult FileInput(@RequestParam MultipartFile uploadFile){
+
+        InputStream stream = null;
+        try {
+            stream = uploadFile.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String filename = uploadFile.getOriginalFilename();
+
+        String path = request.getServletContext().getRealPath("img/");
+
+        String newFileName = FileUtil.copyFile(stream, filename, path);
+
+        String browsePath = CosUploadUtil.cosUtil(stream, newFileName);
+
+        return ResponseResult.success(browsePath);
     }
 }

@@ -28,4 +28,6 @@ public class UserBean extends Page implements Serializable {
 
     private String ids;
 
+    private String userImg;
+
 }

@@ -17,7 +17,7 @@ public interface IMapperUser {
     @Select("select id,name,age from tbl_user")
     List<UserBean> findUser();
 
-    @Insert("insert into tbl_user (Name,Age) values (#{name},#{age})")
+    @Insert("insert into tbl_user (Name,Age,userImg) values (#{name},#{age},#{userImg})")
     void addUser(UserBean user);
 
     @Update("update tbl_user set Name=#{name},Age=#{age} where id=#{id}")
