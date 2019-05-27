@@ -10,9 +10,10 @@ public interface IMapperLogin {
             @Result(column = "id", property = "id"),
             @Result(column = "Account", property = "account"),
             @Result(column = "Password", property = "password"),
-            @Result(column = "Token", property = "token")
+            @Result(column = "Token", property = "token"),
+            @Result(column = "Status", property = "status")
     })
-    @Select("select id,account,password,token from tbl_login where account=#{account}")
+    @Select("select id,account,password,token,status from tbl_login where account=#{account}")
     User loginUser(User user);
 
     @Insert("insert into tbl_login (Account,Password) values (#{account},#{password})")

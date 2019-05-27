@@ -10,6 +10,7 @@ import com.car.admin.util.SystemCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import java.util.UUID;
 
@@ -21,25 +22,25 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
 
     //登录
     @Override
-    public ResponseResult UserLogin(User user){
+    public ResponseResult UserLogin(User user) {
 
         //进行为空验证
         BuildAnnotation buildAnnotation = new BuildAnnotation(user).invoke();
         String account = buildAnnotation.getAccount();
         String password = buildAnnotation.getPassword();
-        if(account == null || password == null){
+        if (account == null || password == null) {
             return ResponseResult.fail(SystemCount.LOGIN_NULL);
         }
 
-            //验证账号是否存在
-            User UserDB = mapperLogin.loginUser(user);
-            if (UserDB == null) {
-                return ResponseResult.fail(SystemCount.ACCOUNT_ERROR);
-            }
+        //验证账号是否存在
+        User UserDB = mapperLogin.loginUser(user);
+        if (UserDB == null) {
+            return ResponseResult.fail(SystemCount.ACCOUNT_ERROR);
+        }
 
 
         //验证密码是否正确
-        if(!password.equals(UserDB.getPassword())){
+        if (!password.equals(UserDB.getPassword())) {
             return ResponseResult.fail(SystemCount.PASSWORD_ERROR);
         }
 
@@ -50,24 +51,24 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
     @Override
     public ResponseResult addUser(User user) {
 
-            User userDB = mapperLogin.loginUser(user);
+        User userDB = mapperLogin.loginUser(user);
 
-            if(userDB == null){
+        if (userDB == null) {
 
-                if(user.getAccount().length() < 4){
-                    return ResponseResult.fail("账号的长度不能低于四位");
-                }
-
-                //增加
-                mapperLogin.addUser(user);
-
-            }else {
-
-                if (user.getAccount().equals(userDB.getAccount())) {
-                    return ResponseResult.fail("账号已存在请重新输入");
-                }
-
+            if (user.getAccount().length() < 4) {
+                return ResponseResult.fail("账号的长度不能低于四位");
             }
+
+            //增加
+            mapperLogin.addUser(user);
+
+        } else {
+
+            if (user.getAccount().equals(userDB.getAccount())) {
+                return ResponseResult.fail("账号已存在请重新输入");
+            }
+
+        }
 
         return ResponseResult.success();
     }
@@ -80,19 +81,18 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
 
             User userDb = mapperLogin.loginUser(user);
 
-            if(userDb == null){
+            if (userDb == null) {
 
                 Random random = new Random();
 
                 String result = "N" + "";
 
-                for (int i=0;i<6;i++)
-                {
-                    result+=random.nextInt(10);
+                for (int i = 0; i < 6; i++) {
+                    result += random.nextInt(10);
                 }
 
                 mapperLogin.addAccount(result);
-            }else{
+            } else {
 
                 return ResponseResult.fail("W000000");
 
@@ -119,20 +119,24 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
     @Override
     public ResponseResult applyUser(User user) {
 
-
         User userb = mapperLogin.loginUser(user);
 
-        if(userb == null){
+        if (userb == null) {
 
             return ResponseResult.fail("该账户不存在,无法进行开户");
 
-        }else{
+        } else {
 
-            mapperLogin.updateApplyUser(user);
+            if (userb.getStatus() == 1) {
+
+                return ResponseResult.fail("已经是开户状态，无法进行再次开户");
+
+            }
+
+            mapperLogin.updateApplyUser(userb);
 
             return ResponseResult.success("该账户已经开户!");
         }
-
     }
 
 }

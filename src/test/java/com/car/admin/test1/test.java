@@ -20,14 +20,14 @@ public class test {
 
         //字段类型一致,覆盖原有UserName的值
         user.setUserName(student.getStuName());
-        System.out.println(user.getUserName());
+        //System.out.println(user.getUserName());
 
         //类型不一样,通过转换也能编辑成功
         user.setUserAge(String.valueOf(student.getStuAge()));
-        System.out.println(user.getUserAge());
+        //System.out.println(user.getUserAge());
 
         user.setId(student.getId());
-        System.out.println(user.getId());
+        //System.out.println(user.getId());
 
     }
 
