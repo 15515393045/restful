@@ -1,9 +1,7 @@
 package com.car.admin.test2;
 
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +29,7 @@ public class GsonDemo {
         bean.setName("张三");
         bean.setSex("男");
 
+        //Gson的高级用法
         //标有@Expose注解的字段才序列化   注意：在此加.create()方法,无法调用setVersion()方法！
         GsonBuilder gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation();
        /*标有@Since(3.2)注解的序列化；@Until(3.2)注解的

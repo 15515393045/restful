@@ -24,4 +24,6 @@ public interface IServiceUser {
     ResponseResult batchInsertUser(Map userDate);
 
     ResponseResult queryUserPage(UserBean userBean);
+
+    ResponseResult findJson();
 }

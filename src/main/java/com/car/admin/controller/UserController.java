@@ -136,4 +136,11 @@ public class UserController {
 
         return ResponseResult.success(browsePath);
     }
+
+    //训练Json格式的嵌套
+    @GetMapping("json")
+    public ResponseResult findJson(){
+      return serviceUser.findJson();
+    }
+
 }

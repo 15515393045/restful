@@ -40,4 +40,7 @@ public interface IMapperUser {
 
     //获取分页列表
     List<UserBean> queryUserPage(UserBean userBean);
+
+    @Select("select id,name,age from tbl_user")
+    List<UserBean> findJson();
 }

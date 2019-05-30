@@ -7,11 +7,14 @@ import com.car.admin.mapper.IMapperUser;
 import com.car.admin.request.UserRequest;
 import com.car.admin.service.IServiceUser;
 import com.car.admin.util.CacheManager;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -172,6 +175,33 @@ public class IServiceUserImpl implements IServiceUser {
             List<UserRequest> userRequests = getUserRequests(userBeans);
 
             return ResponseResult.success(userRequests);
+    }
+
+    @Override
+    public ResponseResult findJson() {
+
+        List<UserBean> json = mapperUser.findJson();
+
+        //Po转换Vo
+        List<UserRequest> list = getUserRequests(json);
+
+        Map<String, Object> map = new HashMap();
+        map.put("test",list);
+
+        List list1 = new ArrayList();
+        list1.add(map);
+
+        //用 Gson 的tojson方法会把 null 值忽略，从而序列化之后输出不包含这个属性值的 Json
+        //展示null值
+        GsonBuilder builder = new GsonBuilder();
+        String toJson = builder.serializeNulls().create().toJson(list1);
+
+        //将Json格式的字符串转换为对象
+        //Json对象套Json对象会报解析异常
+        Gson gson = new Gson();
+        List bean = gson.fromJson(toJson, List.class);
+
+        return ResponseResult.success(bean);
     }
 
 
