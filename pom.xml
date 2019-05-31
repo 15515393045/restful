@@ -104,6 +104,20 @@
             <classifier>jdk15</classifier>
         </dependency>
 
+        <!--*******start  对jsp的支持********-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>

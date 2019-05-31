@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 //把普通pojo实例化到spring容器中，相当于配置文件中的<bean id="" class=""/>
 @Component
-public class test {
+public class testTime{
 
     private static final SimpleDateFormat Time = new SimpleDateFormat("HH:mm:ss");
 

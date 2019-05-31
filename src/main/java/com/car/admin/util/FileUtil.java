@@ -191,13 +191,13 @@ public class FileUtil {
 	}
 	
 	public static void downloadFile(HttpServletRequest request, HttpServletResponse response, String downloadFile, String fileName) {
-		
+
 		BufferedInputStream bis = null;
 		InputStream is = null;
 		OutputStream os = null;
 		BufferedOutputStream bos = null;
 		try {
-			File file=new File(downloadFile); 
+			File file=new File(downloadFile);
 	        is = new FileInputStream(file);  //文件流的声明
 	        os = response.getOutputStream(); //重点突出(特别注意),通过response获取的输出流，作为服务端向客户端浏览器输出内容的通道
 	        // 为了提高效率使用缓冲区流
@@ -221,7 +221,7 @@ public class FileUtil {
 	            bos.write(buffer, 0, bytesRead);// 将文件发送到客户端
 	            bos.flush();
 	        }
-	        
+
 		} catch (Exception ex) {
 			throw new RuntimeException(ex.getMessage());
 		} finally {
