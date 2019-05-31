@@ -6,6 +6,9 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @program: demo-restful
  * @description: 配置类
@@ -24,10 +27,14 @@ public class WebConfig extends WebMvcConfigurationSupport {
     */
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
+
+        List list = new ArrayList();
+        list.add("/user/json");
+        list.add("/login/user");
+
         //  /**拦截所有请求放过json请求
-        registry.addInterceptor(new Interception()).addPathPatterns("/**").
-                //这里少一个/都不行  放过的url
-                excludePathPatterns("/user/json","/login/user");
+        registry.addInterceptor(new Interception()).addPathPatterns("/**").excludePathPatterns(list);
+
 
         super.addInterceptors(registry);
     }
