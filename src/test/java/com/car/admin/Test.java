@@ -24,7 +24,6 @@ public class Test {
         System.out.println(((Integer) list.get(1)) - 5);
 
         //java 之所以引入泛型是为了增强程序的安全性和正确性, 以便在编译期就能检查出类型相关的错误.
-
         List<Integer> arr = new ArrayList<Integer>();
         arr.add(11);
         arr.add(22);

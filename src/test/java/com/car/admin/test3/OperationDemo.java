@@ -13,11 +13,10 @@ public class OperationDemo {
 
         System.out.println(x);
 
-    //两个相同的数 异或 之后结果会等于 0，即 n ^ n = 0。并且任何数与 0 异或等于它本身，即 n ^ 0 = n
-
+        //两个相同的数 异或 之后结果会等于 0，即 n ^ n = 0。并且任何数与 0 异或等于它本身，即 n ^ 0 = n
         x = x ^ y;   // （1）
         y = x ^ y;   // （2）
-        x = x ^ y;
+        x = x ^ y;   //
 
         //System.out.println(y);
 
