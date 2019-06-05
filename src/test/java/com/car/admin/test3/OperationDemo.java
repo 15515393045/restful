@@ -93,6 +93,10 @@ public class OperationDemo {
         System.out.println(n);*/
 
         System.out.println(find(n));
+
+        System.out.println(0 ^ 6);
+
+        System.out.println(51 ^ 61);
     }
 
     private static int find(int n){

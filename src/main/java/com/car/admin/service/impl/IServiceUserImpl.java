@@ -141,7 +141,7 @@ public class IServiceUserImpl implements IServiceUser {
 
         //对获取到的list集合进行验证
         if(list.size() > 0 && list != null){
-            //循环拿到的list集合
+            //循环拿到的list集合获取里面的值
             for (Map<String, String> map : list) {
                 //初始化对象并进行赋值
                 UserBean userBean = new UserBean();
