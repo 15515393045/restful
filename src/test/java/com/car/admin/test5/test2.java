@@ -20,6 +20,8 @@ public class test2 {
             System.out.println(s);
         }
 
+
+
         //向本地写文件
         FileWriter writer = new FileWriter("D:/llllllllllllllllll.text");
         writer.write("aaaa");
