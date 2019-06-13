@@ -5,10 +5,9 @@ import javafx.util.Builder;
 import org.junit.Test;
 import org.springframework.util.concurrent.SuccessCallback;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.function.Consumer;
 
 /**
@@ -162,5 +161,28 @@ public class Test1 {
             System.out.println(x+":");
             y.forEach(z->System.out.println(z));
         });
+    }
+    @Test
+    public void test6(){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long l = System.currentTimeMillis();
+        Date date = new Date(l);
+        System.out.println(format.format(date));
+    }
+
+    @Test
+    public void test7() throws IOException {
+        //写文件
+        FileWriter writer = new FileWriter("D:/zhan.txt");
+        writer.write("test");
+        writer.flush();
+        writer.close();
+        //读文件
+        File file = new File("D:/zhan.txt");
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(file),"UTF-8");
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        System.out.println(bufferedReader.readLine());
+        bufferedReader.close();
+        reader.close();
     }
 }

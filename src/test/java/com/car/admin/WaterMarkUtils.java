@@ -39,7 +39,6 @@ public class WaterMarkUtils {
                 g.drawImage(srcImg, 0, 0, srcImgWidth, srcImgHeight, null);
                 g.setColor(markContentColor); //根据图片的背景设置水印颜色
                 g.setFont(font);              //设置字体
-
                 //设置水印的坐标
                 int x = srcImgWidth - 2*getWatermarkLength(waterMarkContent, g);
                 int y = srcImgHeight - 2*getWatermarkLength(waterMarkContent, g);
