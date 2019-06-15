@@ -31,7 +31,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
         List list = new ArrayList();
         list.add("/user/json");
         list.add("/login/user");
-
+        list.add("/user/batchAdd");
         //  /**拦截所有请求放过json请求
         registry.addInterceptor(new Interception()).addPathPatterns("/**").excludePathPatterns(list);
 

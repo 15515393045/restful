@@ -1,13 +1,16 @@
 package com.car.admin;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class CarBean implements Serializable {
 
     private static final long serialVersionUID = -7409990103351721134L;
 
+    @SerializedName("名字")
     private String carName;
-
+    @SerializedName("价格")
     private Float carPrice;
 
     //无参构造函数
