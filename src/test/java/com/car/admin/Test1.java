@@ -1,9 +1,13 @@
 package com.car.admin;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.util.Builder;
+import org.apache.commons.collections.bag.SynchronizedSortedBag;
 import org.junit.Test;
 import org.springframework.util.concurrent.SuccessCallback;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -185,4 +189,79 @@ public class Test1 {
         bufferedReader.close();
         reader.close();
     }
+
+
+    @Test
+    public void test8() throws IOException {
+        FileWriter writer = new FileWriter("D:/aaa.txt");
+        writer.write("尚东海");
+        writer.flush();
+        writer.close();
+
+        File file = new File("D:/aaa.txt");
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(file),"UTF-8");
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        System.out.println(bufferedReader.readLine());
+        bufferedReader.close();
+    }
+
+    @Test
+    public void test9(){
+        //^
+        //System.out.println(15 ^ 5);
+        //System.out.println(0 ^ 5);
+        //System.out.println(5 ^ 5);
+
+      /*  int i = 2;
+        int j = 5;
+
+        i = i ^ j;
+        j = i ^ j;
+        i = i ^ j;
+        System.out.println(i);
+        System.out.println(j+"aa");*/
+
+      int[] arr = {2,1,5,3,4};
+
+        for (int i = 0; i < arr.length-1; i++) {
+            for (int j = 0; j < arr.length-i-1; j++) {
+                    if(arr[j] > arr[j+1]){
+                        arr[j] = arr[j] ^ arr[j+1];
+                        arr[j+1] = arr[j] ^ arr[j+1];
+                        arr[j] = arr[j] ^ arr[j+1];
+                    }
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
+    @Test
+    public void test10(){
+        HashMap map1 = new HashMap();
+        map1.put("name","张三");
+        map1.put("age",15);
+        HashMap map2 = new HashMap();
+        map2.put("name","李四");
+        map2.put("age",16);
+        HashMap map3 = new HashMap();
+        map3.put("name",null);
+        map3.put("age",null);
+
+        List list = new ArrayList();
+        list.add(map1);
+        list.add(map2);
+        list.add(map3);
+
+        HashMap map = new HashMap();
+        map.put("code",200);
+        map.put("msg","成功");
+        map.put("data",list);
+
+        GsonBuilder builder = new GsonBuilder();
+        String s = builder.serializeNulls().create().toJson(map);
+        System.out.println(s);
+    }
+
 }

@@ -2,6 +2,7 @@ package com.car.admin.test6;
 
 import com.google.gson.Gson;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +52,51 @@ public class JsonDemo {
         hashMap.put("code",200);
         Gson gson = new Gson();
         String toJson = gson.toJson(hashMap);
-        System.out.println(toJson);
+        //System.out.println(toJson);
+
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter("D:/json.txt");
+            writer.write(toJson);
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if(writer != null){
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        File file = new File("D:/json.txt");
+
+        InputStreamReader reader =null;
+        BufferedReader bufferedReader = null;
+        try {
+            reader = new InputStreamReader(new FileInputStream(file),"UTF-8");
+            bufferedReader = new BufferedReader(reader);
+            System.out.println(bufferedReader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if(bufferedReader != null){
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(reader != null){
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 }
