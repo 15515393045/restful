@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -204,4 +205,16 @@ public class UserController {
       return serviceUser.findJson();
     }
 
+    //用list接收参数需要指明泛型否则会报错
+    @PostMapping("testJson")
+    public void testJson(@RequestBody Map<String,List<StudentBean>> map){
+        //JavaBean和Map的JSON格式一样
+        List<StudentBean> studentBeans = map.get("data");
+        for (StudentBean studentBean : studentBeans) {
+            System.out.println(studentBean.getName());
+            System.out.println(studentBean.getAge());
+        }
+
+
+    }
 }
