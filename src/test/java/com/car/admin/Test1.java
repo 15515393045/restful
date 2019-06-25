@@ -4,6 +4,7 @@ package com.car.admin;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.util.Builder;
+import org.apache.avalon.framework.activity.Suspendable;
 import org.apache.commons.collections.bag.SynchronizedSortedBag;
 import org.junit.Test;
 import org.springframework.util.concurrent.SuccessCallback;
@@ -264,4 +265,9 @@ public class Test1 {
         System.out.println(s);
     }
 
+    @Test
+    public void test13(){
+
+
+    }
 }

@@ -6,6 +6,7 @@ import com.car.admin.enums.ServerResponse;
 import com.car.admin.service.IServiceUser;
 import com.car.admin.util.CosUploadUtil;
 import com.car.admin.util.FileUtil;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.StandardSocketOptions;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -214,7 +218,32 @@ public class UserController {
             System.out.println(studentBean.getName());
             System.out.println(studentBean.getAge());
         }
+    }
+
+    @PostMapping("testArea")
+    public ResponseResult getRequest(@RequestBody Map<String,Object> map) {
+
+        Map<String,Object> response = (Map<String, Object>) map.get("response");
+
+        Map<String,Object> phoneInfoType = (Map<String, Object>) response.get("18301600000");
+        String location = (String) phoneInfoType.get("location");
+        System.out.println(location);
+
+        Map<String,Object> detail = (Map<String, Object>) phoneInfoType.get("detail");
 
 
+        Gson gson = new Gson();
+        //将获取的数据转换为JSON格式的字符串
+        String detailInfo = gson.toJson(detail);
+        System.out.println(detailInfo);
+        //将JSON格式的字符串序列化到JavaBean中
+        ResponseInfo responseInfo = gson.fromJson(detailInfo, ResponseInfo.class);
+
+        List<AreaInfo> area = responseInfo.getArea();
+        for (AreaInfo areaInfo : area) {
+            System.out.println(areaInfo.getCity());
+        }
+
+        return ResponseResult.success();
     }
 }
