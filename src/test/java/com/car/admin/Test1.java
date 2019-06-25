@@ -268,6 +268,124 @@ public class Test1 {
     @Test
     public void test13(){
 
+        List<DataInfo> list = new ArrayList();
+        for(int j = 0; j< 1; j++){
+            DataInfo dataInfo = new DataInfo();
+            int i = (int) ((Math.random() * 1) * 500);
+            System.out.print(i);
+            dataInfo.setData(i);
+            list.add(dataInfo);
+        }
+
+        for (DataInfo dataInfo : list) {
+            System.out.println(dataInfo);
+        }
+
+
+    }
+
+    //计算方法
+    @Test
+    public void  test14() {
+        int min = 100;
+        int max = 500;
+        int price = 5000;
+
+        List<Integer> randomList = new ArrayList<Integer>();
+
+        for (int i = 0; i < 5000/min; i++) {
+
+            //不允许出现500则-1
+            //int radom = (int)(min + (Math.random()*(max-min)+1))-1;
+            int radom = (int)(min + (Math.random()*(max-min)+1));
+
+            randomList.add(radom);
+            price = price - radom;
+
+            if (price < min || price<max) {
+                randomList.add(price);
+                System.out.println("余数："+price);
+                break;
+            }
+        }
+        System.out.println(randomList);
+    }
+
+    @Test
+    public void test15(){
+        //每月工作天数
+        float workDays = 22;
+        //地铁每次费用
+        float perSubwayCost = 7;
+        //公交车每次费用（小数加f）
+        float perBusCost = 1;
+
+        TravellingCostCalculator(workDays,perSubwayCost,perBusCost);
+
+    }
+    //北京公交地铁优化折扣计策
+    private static void TravellingCostCalculator (float workDays,float perSubwayCost,float perBusCost) {
+        /**
+         * 描述
+         */
+        String PlanA_Disc = "A路线将于第";
+        String TwenttyPercentOffDisc = "天，八折";
+        String TwenttyPercentOffDisc_pm = "天，下午八折";
+        String HalfDiscountDisc = "天，五折";
+        String HalfDiscountDisc_pm = "天，下午五折";
+        String PlanA_totalDisc = "A路线总合计";
+        String NOCalculator = "笨蛋，这个还需要算？";
+        /**
+         * 常量参数
+         */
+        final float twentyPercentOff = 0.8f;            //八折
+        final float halfDiscount = 0.5f;                //五折
+        final int   twentyPercentOff_policy = 100;      //八折政策，满一百元
+        final int   halfDiscount_policy = 150;          //五折政策，满一百五十元
+        /**
+         * 参数
+         */
+        float costCount = workDays*2;                   //计费次数
+        float PlanA_mthBusCost = workDays*perBusCost;   //每月公交总费用
+        float PlanA_monthCost = 0;                      //总计费用
+
+        if (perSubwayCost==0 || perBusCost==0 ) {
+            System.out.println(NOCalculator);
+        }
+        //必传参数判断
+        if (workDays !=0 && perSubwayCost != 0 && perBusCost != 0 ) {
+            int temp_i = 0;
+
+            for (int i = 0; i < costCount; i++) {
+                PlanA_monthCost = perSubwayCost * i;
+                if (PlanA_monthCost >= twentyPercentOff_policy && PlanA_monthCost < (twentyPercentOff_policy + perSubwayCost)) {
+                    if (i % 2 == 0) {
+                        System.out.println(PlanA_Disc + (i / 2 + 1) + TwenttyPercentOffDisc);
+                        temp_i = i;
+                    } else {
+                        System.out.println(PlanA_Disc + Math.floor((double) i / 2 ) + TwenttyPercentOffDisc_pm);
+                        temp_i = i;
+                    }
+                    break;
+                }
+            }
+
+            for (int i = temp_i+1; i < costCount; i++) {
+                float temp_monthCost = perSubwayCost * twentyPercentOff;
+                PlanA_monthCost += temp_monthCost;
+                if (PlanA_monthCost >= halfDiscount_policy && PlanA_monthCost <= (halfDiscount_policy + perSubwayCost)) {
+
+                    if (i % 2 == 0) {
+                        System.out.println(PlanA_Disc + (i / 2 + 1) + HalfDiscountDisc);
+                    } else {
+                        System.out.println(PlanA_Disc + Math.floor((double) i / 2 + 1) + HalfDiscountDisc_pm);
+                    }
+                    PlanA_monthCost += (costCount - i) * perSubwayCost * halfDiscount + PlanA_mthBusCost;
+                    break;
+                }
+            }
+            System.out.println(PlanA_totalDisc + PlanA_monthCost);
+        }
 
     }
 }
