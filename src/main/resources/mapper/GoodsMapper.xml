@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.admin.mapper.IStudySQLMapper" >
+
+    <resultMap id="BaseBean" type="com.car.admin.bean.GoodsBean">
+        <result column="goods_name" property="goodsName"/>
+        <result column="market_price" property="marketPrice"/>
+        <result column="cost_price" property="costPrice"/>
+    </resultMap>
+
+    <select id="profitPrice" resultMap="BaseBean">
+      select goods_name,market_price,cost_price,
+      (market_price - cost_price) as 'profitPrice'
+      from goods;
+    </select>
+
+</mapper>
