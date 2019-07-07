@@ -1,5 +1,6 @@
 package com.car.admin.mapper;
 
+import com.car.admin.bean.BrandBean;
 import com.car.admin.bean.GoodsBean;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface IStudySQLMapper {
 
     List<GoodsBean> profitPrice();
 
+    List<BrandBean> brandInfo();
 }

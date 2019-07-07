@@ -62,8 +62,8 @@ public class WaterMarkUtils {
         public static void main(String[] args) {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             Font font = new Font("微软雅黑", Font.PLAIN, 60);             //水印字体
-            String srcImgPath="D:/img.bmp";                      //源图片地址
-            String tarImgPath="D:/新建文件夹/美女1.jpg";                                           //待存储的地址
+            String srcImgPath="C:/Users/詹一恒/Pictures/Saved Pictures/timg1018.jpg";                      //源图片地址
+            String tarImgPath="D:/新建文件夹/刀剑神域.jpg";                                           //待存储的地址
             String waterMarkContent="詹一恒";                      //水印内容
             Color color=new Color(255,255,255,128);                       //水印图片色彩以及透明度
             new WaterMarkUtils().addWaterMark(srcImgPath,tarImgPath,waterMarkContent,color,font);

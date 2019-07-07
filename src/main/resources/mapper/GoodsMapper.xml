@@ -14,4 +14,8 @@
       from goods;
     </select>
 
+    <select id="brandInfo" resultType="com.car.admin.bean.BrandBean">
+      select concat(name,cat_name) as 'brandInfo' from brand limit 10;
+    </select>
+
 </mapper>

@@ -26,4 +26,8 @@ public class StudySqlController {
         return iStudySQL.profitPrice();
     }
 
+    @GetMapping("brand_info")
+    public ServerResponse brandInfo() {
+        return iStudySQL.brandInfo();
+    }
 }

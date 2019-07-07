@@ -739,3 +739,96 @@ org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or nu
 2019-06-30 22:13:51,924 | INFO | http-nio-8080-exec-2 | com.zaxxer.hikari.HikariDataSource | (HikariDataSource.java:123)- HikariPool-1 - Start completed.
 2019-06-30 22:13:51,927 | DEBUG | http-nio-8080-exec-2 | org.mybatis.spring.transaction.SpringManagedTransaction | (Logger.java:49)- JDBC Connection [HikariProxyConnection@1989525064 wrapping com.mysql.jdbc.JDBC4Connection@19a2b274] will not be managed by Spring
 2019-06-30 22:13:51,943 | DEBUG | http-nio-8080-exec-2 | org.mybatis.spring.SqlSessionUtils | (Logger.java:49)- Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@756cd3d7]
+2019-06-30 23:24:33,197 | INFO | main | com.car.admin.DemoRestfulApplication | (StartupInfoLogger.java:50)- Starting DemoRestfulApplication on LAPTOP-PlQ4NP9S with PID 12024 (D:\demo\restful\target\classes started by 詹一恒 in D:\demo\restful)
+2019-06-30 23:24:33,202 | INFO | main | com.car.admin.DemoRestfulApplication | (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-06-30 23:24:33,848 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IMapperLogin.class]
+2019-06-30 23:24:33,849 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IMapperUser.class]
+2019-06-30 23:24:33,849 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IStudySQLMapper.class]
+2019-06-30 23:24:33,849 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IMapperLogin' and 'com.car.admin.mapper.IMapperLogin' mapperInterface
+2019-06-30 23:24:33,850 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IMapperLogin'.
+2019-06-30 23:24:33,850 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IMapperUser' and 'com.car.admin.mapper.IMapperUser' mapperInterface
+2019-06-30 23:24:33,850 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IMapperUser'.
+2019-06-30 23:24:33,850 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IStudySQLMapper' and 'com.car.admin.mapper.IStudySQLMapper' mapperInterface
+2019-06-30 23:24:33,850 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IStudySQLMapper'.
+2019-06-30 23:24:34,521 | INFO | main | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-06-30 23:24:34,536 | INFO | main | org.apache.coyote.http11.Http11NioProtocol | (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-06-30 23:24:34,548 | INFO | main | org.apache.catalina.core.StandardService | (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-06-30 23:24:34,549 | INFO | main | org.apache.catalina.core.StandardEngine | (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-06-30 23:24:34,693 | INFO | main | org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] | (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-06-30 23:24:34,693 | INFO | main | org.springframework.web.context.ContextLoader | (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 1396 ms
+2019-06-30 23:24:35,050 | DEBUG | main | org.mybatis.spring.SqlSessionFactoryBean | (Logger.java:49)- Parsed mapper file: 'file [D:\demo\restful\target\classes\mapper\GoodsMapper.xml]'
+2019-06-30 23:24:35,088 | DEBUG | main | org.mybatis.spring.SqlSessionFactoryBean | (Logger.java:49)- Parsed mapper file: 'file [D:\demo\restful\target\classes\mapper\UserMapper.xml]'
+2019-06-30 23:24:35,454 | INFO | main | org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler | (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'taskScheduler'
+2019-06-30 23:24:35,624 | WARN | main | org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration | (ThymeleafAutoConfiguration.java:108)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-06-30 23:24:35,692 | INFO | main | org.apache.coyote.http11.Http11NioProtocol | (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-06-30 23:24:35,720 | INFO | main | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-30 23:24:35,724 | INFO | main | com.car.admin.DemoRestfulApplication | (StartupInfoLogger.java:59)- Started DemoRestfulApplication in 3.224 seconds (JVM running for 4.634)
+2019-06-30 23:24:56,525 | INFO | http-nio-8080-exec-2 | org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] | (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-30 23:24:56,526 | INFO | http-nio-8080-exec-2 | org.springframework.web.servlet.DispatcherServlet | (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-06-30 23:24:56,532 | INFO | http-nio-8080-exec-2 | org.springframework.web.servlet.DispatcherServlet | (FrameworkServlet.java:546)- Completed initialization in 6 ms
+2019-06-30 23:25:25,125 | INFO | main | com.car.admin.DemoRestfulApplication | (StartupInfoLogger.java:50)- Starting DemoRestfulApplication on LAPTOP-PlQ4NP9S with PID 8060 (D:\demo\restful\target\classes started by 詹一恒 in D:\demo\restful)
+2019-06-30 23:25:25,136 | INFO | main | com.car.admin.DemoRestfulApplication | (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-06-30 23:25:25,713 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IMapperLogin.class]
+2019-06-30 23:25:25,713 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IMapperUser.class]
+2019-06-30 23:25:25,713 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IStudySQLMapper.class]
+2019-06-30 23:25:25,714 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IMapperLogin' and 'com.car.admin.mapper.IMapperLogin' mapperInterface
+2019-06-30 23:25:25,715 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IMapperLogin'.
+2019-06-30 23:25:25,715 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IMapperUser' and 'com.car.admin.mapper.IMapperUser' mapperInterface
+2019-06-30 23:25:25,715 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IMapperUser'.
+2019-06-30 23:25:25,715 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IStudySQLMapper' and 'com.car.admin.mapper.IStudySQLMapper' mapperInterface
+2019-06-30 23:25:25,715 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IStudySQLMapper'.
+2019-06-30 23:25:26,368 | INFO | main | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-06-30 23:25:26,380 | INFO | main | org.apache.coyote.http11.Http11NioProtocol | (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-06-30 23:25:26,389 | INFO | main | org.apache.catalina.core.StandardService | (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-06-30 23:25:26,389 | INFO | main | org.apache.catalina.core.StandardEngine | (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-06-30 23:25:26,528 | INFO | main | org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] | (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-06-30 23:25:26,528 | INFO | main | org.springframework.web.context.ContextLoader | (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 1342 ms
+2019-06-30 23:25:26,781 | DEBUG | main | org.mybatis.spring.SqlSessionFactoryBean | (Logger.java:49)- Parsed mapper file: 'file [D:\demo\restful\target\classes\mapper\GoodsMapper.xml]'
+2019-06-30 23:25:26,870 | DEBUG | main | org.mybatis.spring.SqlSessionFactoryBean | (Logger.java:49)- Parsed mapper file: 'file [D:\demo\restful\target\classes\mapper\UserMapper.xml]'
+2019-06-30 23:25:27,078 | INFO | main | org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler | (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'taskScheduler'
+2019-06-30 23:25:27,252 | WARN | main | org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration | (ThymeleafAutoConfiguration.java:108)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-06-30 23:25:27,324 | INFO | main | org.apache.coyote.http11.Http11NioProtocol | (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-06-30 23:25:27,356 | INFO | main | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-30 23:25:27,360 | INFO | main | com.car.admin.DemoRestfulApplication | (StartupInfoLogger.java:59)- Started DemoRestfulApplication in 2.894 seconds (JVM running for 4.259)
+2019-06-30 23:25:41,237 | INFO | http-nio-8080-exec-1 | org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] | (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-30 23:25:41,237 | INFO | http-nio-8080-exec-1 | org.springframework.web.servlet.DispatcherServlet | (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-06-30 23:25:41,245 | INFO | http-nio-8080-exec-1 | org.springframework.web.servlet.DispatcherServlet | (FrameworkServlet.java:546)- Completed initialization in 7 ms
+2019-06-30 23:25:41,268 | DEBUG | http-nio-8080-exec-1 | org.mybatis.spring.SqlSessionUtils | (Logger.java:49)- Creating a new SqlSession
+2019-06-30 23:25:41,271 | DEBUG | http-nio-8080-exec-1 | org.mybatis.spring.SqlSessionUtils | (Logger.java:49)- SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@575cbbf] was not registered for synchronization because synchronization is not active
+2019-06-30 23:25:41,278 | INFO | http-nio-8080-exec-1 | com.zaxxer.hikari.HikariDataSource | (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-06-30 23:25:41,565 | INFO | http-nio-8080-exec-1 | com.zaxxer.hikari.HikariDataSource | (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-06-30 23:25:41,568 | DEBUG | http-nio-8080-exec-1 | org.mybatis.spring.transaction.SpringManagedTransaction | (Logger.java:49)- JDBC Connection [HikariProxyConnection@532663229 wrapping com.mysql.jdbc.JDBC4Connection@283a1896] will not be managed by Spring
+2019-06-30 23:25:41,595 | DEBUG | http-nio-8080-exec-1 | org.mybatis.spring.SqlSessionUtils | (Logger.java:49)- Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@575cbbf]
+2019-06-30 23:26:44,703 | INFO | main | com.car.admin.DemoRestfulApplication | (StartupInfoLogger.java:50)- Starting DemoRestfulApplication on LAPTOP-PlQ4NP9S with PID 13652 (D:\demo\restful\target\classes started by 詹一恒 in D:\demo\restful)
+2019-06-30 23:26:44,706 | INFO | main | com.car.admin.DemoRestfulApplication | (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-06-30 23:26:45,268 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IMapperLogin.class]
+2019-06-30 23:26:45,268 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IMapperUser.class]
+2019-06-30 23:26:45,268 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (ClassPathScanningCandidateComponentProvider.java:437)- Identified candidate component class: file [D:\demo\restful\target\classes\com\car\admin\mapper\IStudySQLMapper.class]
+2019-06-30 23:26:45,269 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IMapperLogin' and 'com.car.admin.mapper.IMapperLogin' mapperInterface
+2019-06-30 23:26:45,269 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IMapperLogin'.
+2019-06-30 23:26:45,270 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IMapperUser' and 'com.car.admin.mapper.IMapperUser' mapperInterface
+2019-06-30 23:26:45,270 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IMapperUser'.
+2019-06-30 23:26:45,270 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Creating MapperFactoryBean with name 'IStudySQLMapper' and 'com.car.admin.mapper.IStudySQLMapper' mapperInterface
+2019-06-30 23:26:45,270 | DEBUG | main | org.mybatis.spring.mapper.ClassPathMapperScanner | (Logger.java:49)- Enabling autowire by type for MapperFactoryBean with name 'IStudySQLMapper'.
+2019-06-30 23:26:45,926 | INFO | main | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-06-30 23:26:45,938 | INFO | main | org.apache.coyote.http11.Http11NioProtocol | (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-06-30 23:26:45,946 | INFO | main | org.apache.catalina.core.StandardService | (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-06-30 23:26:45,947 | INFO | main | org.apache.catalina.core.StandardEngine | (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-06-30 23:26:46,087 | INFO | main | org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] | (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-06-30 23:26:46,087 | INFO | main | org.springframework.web.context.ContextLoader | (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 1300 ms
+2019-06-30 23:26:46,339 | DEBUG | main | org.mybatis.spring.SqlSessionFactoryBean | (Logger.java:49)- Parsed mapper file: 'file [D:\demo\restful\target\classes\mapper\GoodsMapper.xml]'
+2019-06-30 23:26:46,428 | DEBUG | main | org.mybatis.spring.SqlSessionFactoryBean | (Logger.java:49)- Parsed mapper file: 'file [D:\demo\restful\target\classes\mapper\UserMapper.xml]'
+2019-06-30 23:26:46,600 | INFO | main | org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler | (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'taskScheduler'
+2019-06-30 23:26:46,774 | WARN | main | org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration | (ThymeleafAutoConfiguration.java:108)- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-06-30 23:26:46,850 | INFO | main | org.apache.coyote.http11.Http11NioProtocol | (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-06-30 23:26:46,884 | INFO | main | org.springframework.boot.web.embedded.tomcat.TomcatWebServer | (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-30 23:26:46,887 | INFO | main | com.car.admin.DemoRestfulApplication | (StartupInfoLogger.java:59)- Started DemoRestfulApplication in 2.823 seconds (JVM running for 4.245)
+2019-06-30 23:27:11,768 | INFO | http-nio-8080-exec-1 | org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] | (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-30 23:27:11,768 | INFO | http-nio-8080-exec-1 | org.springframework.web.servlet.DispatcherServlet | (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-06-30 23:27:11,773 | INFO | http-nio-8080-exec-1 | org.springframework.web.servlet.DispatcherServlet | (FrameworkServlet.java:546)- Completed initialization in 5 ms
+2019-06-30 23:27:11,799 | DEBUG | http-nio-8080-exec-1 | org.mybatis.spring.SqlSessionUtils | (Logger.java:49)- Creating a new SqlSession
+2019-06-30 23:27:11,802 | DEBUG | http-nio-8080-exec-1 | org.mybatis.spring.SqlSessionUtils | (Logger.java:49)- SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@215dc115] was not registered for synchronization because synchronization is not active
+2019-06-30 23:27:11,808 | INFO | http-nio-8080-exec-1 | com.zaxxer.hikari.HikariDataSource | (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-06-30 23:27:12,106 | INFO | http-nio-8080-exec-1 | com.zaxxer.hikari.HikariDataSource | (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-06-30 23:27:12,109 | DEBUG | http-nio-8080-exec-1 | org.mybatis.spring.transaction.SpringManagedTransaction | (Logger.java:49)- JDBC Connection [HikariProxyConnection@1665495795 wrapping com.mysql.jdbc.JDBC4Connection@42554c92] will not be managed by Spring
+2019-06-30 23:27:12,126 | DEBUG | http-nio-8080-exec-1 | org.mybatis.spring.SqlSessionUtils | (Logger.java:49)- Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@215dc115]
