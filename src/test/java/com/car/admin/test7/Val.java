@@ -8,9 +8,9 @@ package com.car.admin.test7;
  **/
 public class Val {
 
-    public static void
-            (String[] args) {
+    public static void main(String[] args) {
         var var = new var();
         System.out.println(var.d);
     }
+
 }

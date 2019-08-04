@@ -13,6 +13,7 @@ public interface IMapperLogin {
             @Result(column = "Token", property = "token"),
             @Result(column = "Status", property = "status")
     })
+
     @Select("select id,account,password,token,status from tbl_login where account=#{account}")
     User loginUser(User user);
 
