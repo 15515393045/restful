@@ -1,6 +1,7 @@
 package com.car.admin.controller;
 
 import com.car.admin.ServerEnums.ResponseResult;
+import com.car.admin.bean.ClientLoginBean;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ServerResponse;
 import com.car.admin.service.IServiceUser;
@@ -245,6 +246,19 @@ public class UserController {
         }
 
         return ResponseResult.success();
+    }
+
+    @GetMapping("queryGoods")
+    public ResponseResult queryGoods(){
+        return serviceUser.queryGoods();
+    }
+
+    @PostMapping("clientLogin")
+    public ResponseResult clientLogin(@RequestBody @Valid ClientLoginBean user, BindingResult result){
+        if(result.hasErrors()){
+            return ResponseResult.fail(-1,result.getFieldError().getDefaultMessage());
+        }
+        return serviceUser.clientLogin(user);
     }
 
 }

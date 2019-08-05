@@ -1,28 +1,37 @@
 package com.car.admin.service.impl;
 
 import com.car.admin.ServerEnums.ResponseResult;
+import com.car.admin.bean.ClientLoginBean;
+import com.car.admin.bean.GoodsPo;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ServerResponse;
 import com.car.admin.mapper.IMapperUser;
 import com.car.admin.request.UserRequest;
 import com.car.admin.service.IServiceUser;
 import com.car.admin.util.CacheManager;
+import com.car.admin.util.JwtTokenUtils;
+import com.car.admin.util.MD5Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
+@Transactional(rollbackFor = Exception.class)//事务
+@Slf4j
 @Service
-//事务
-@Transactional(rollbackFor = Exception.class)
 public class IServiceUserImpl implements IServiceUser {
+
 
     @Autowired
     private IMapperUser mapperUser;
@@ -203,6 +212,37 @@ public class IServiceUserImpl implements IServiceUser {
         List bean = gson.fromJson(toJson, List.class);
 
         return ResponseResult.success(bean);
+    }
+
+    @Override
+    public ResponseResult queryGoods() {
+        List<GoodsPo> goodsPos = mapperUser.queryGoods();
+        return ResponseResult.success(goodsPos);
+    }
+
+    //JWTToken用户登录
+    @Override
+    public ResponseResult clientLogin(ClientLoginBean user) {
+        try {
+
+            ClientLoginBean userDB = mapperUser.queryClientInfo(user.getClientName());
+
+            if(userDB == null){
+                return ResponseResult.fail(201,"账户输入有误");
+            }
+
+            if(!MD5Util.getStringMD5(user.getPassword()).equals(userDB.getPassword())){
+                return ResponseResult.fail(202,"输入的密码不正确");
+            }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.error(e.getMessage());
+            }
+
+        String zhanyiheng = JwtTokenUtils.ToKenUtil(user, "ZHANYIHENG", 120000l);
+
+        return ResponseResult.success(zhanyiheng);
     }
 
 

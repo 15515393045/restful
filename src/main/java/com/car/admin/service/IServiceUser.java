@@ -1,6 +1,7 @@
 package com.car.admin.service;
 
 import com.car.admin.ServerEnums.ResponseResult;
+import com.car.admin.bean.ClientLoginBean;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ServerResponse;
 
@@ -26,4 +27,8 @@ public interface IServiceUser {
     ResponseResult queryUserPage(UserBean userBean);
 
     ResponseResult findJson();
+
+    ResponseResult queryGoods();
+
+    ResponseResult clientLogin(ClientLoginBean user);
 }

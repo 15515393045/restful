@@ -1,5 +1,7 @@
 package com.car.admin.mapper;
 
+import com.car.admin.bean.ClientLoginBean;
+import com.car.admin.bean.GoodsPo;
 import com.car.admin.dto.UserBean;
 import org.apache.ibatis.annotations.*;
 
@@ -43,4 +45,10 @@ public interface IMapperUser {
 
     @Select("select id,name,age from tbl_user")
     List<UserBean> findJson();
+
+    @Select("select * from goods ")
+    List<GoodsPo> queryGoods();
+
+    @Select("select id,client_name clientName,password,client_status clientStatus,last_time lastTime from client_login where client_name = #{clientName}")
+    ClientLoginBean queryClientInfo(String clientName);
 }
