@@ -137,6 +137,19 @@
             <classifier>jdk15</classifier>
         </dependency>
 
+        <!--AOP切面的相关依赖-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+
         <!--*******start  对jsp的支持********-->
         <dependency>
             <groupId>javax.servlet</groupId>

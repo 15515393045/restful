@@ -14,7 +14,6 @@ public class Demo1 {
 
     public static void main(String[] args) {
 
-
         CarBean bean = new CarBean();
         bean.setCarName("aaa");
         bean.setCarPrice(null);
@@ -22,8 +21,6 @@ public class Demo1 {
         GsonBuilder builder = new GsonBuilder();
         String json = builder.serializeNulls().create().toJson(bean);
         System.out.println(json);
-
-
 
     }
 }

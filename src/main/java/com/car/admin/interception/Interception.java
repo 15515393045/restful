@@ -23,7 +23,7 @@ public class Interception implements HandlerInterceptor {
         System.out.println("请求被拦截"+request.getServletPath());
 
         //true为放行  false为拦截。
-        return false;
+        return true;
     }
 
     @Override

@@ -38,6 +38,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
         list.add("/study/profit_price");
         list.add("/study/brand_info");
         list.add("/login/user");
+        list.add("/user/userLogin");
         //  /**拦截所有请求放过json请求
         registry.addInterceptor(new Interception()).addPathPatterns("/**").excludePathPatterns(list);
 

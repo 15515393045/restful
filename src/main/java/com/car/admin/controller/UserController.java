@@ -1,6 +1,7 @@
 package com.car.admin.controller;
 
 import com.car.admin.ServerEnums.ResponseResult;
+import com.car.admin.annotation.TokenJwt;
 import com.car.admin.bean.ClientLoginBean;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ServerResponse;
@@ -254,11 +255,20 @@ public class UserController {
     }
 
     @PostMapping("clientLogin")
+    @TokenJwt(value = false)
     public ResponseResult clientLogin(@RequestBody @Valid ClientLoginBean user, BindingResult result){
         if(result.hasErrors()){
             return ResponseResult.fail(-1,result.getFieldError().getDefaultMessage());
         }
         return serviceUser.clientLogin(user);
+    }
+
+    @PostMapping("userLogin")
+    @TokenJwt
+    public ResponseResult userLogin(String name, @RequestParam String sex){
+        System.out.println(sex);
+        System.out.println(name);
+        return ResponseResult.success();
     }
 
 }
