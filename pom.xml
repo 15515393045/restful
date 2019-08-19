@@ -150,6 +150,12 @@
             <version>1.9.2</version>
         </dependency>
 
+        <!-- springboot整合redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
         <!--*******start  对jsp的支持********-->
         <dependency>
             <groupId>javax.servlet</groupId>
