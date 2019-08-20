@@ -17,6 +17,7 @@ public class CarBean implements Serializable {
     CarBean(){}
 
 
+
     //有参构造函数
     public CarBean(String carName,float carPrice){
         this.carName = carName;
