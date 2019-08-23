@@ -4,7 +4,7 @@ import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.bean.ClientLoginBean;
 import com.car.admin.bean.GoodsPo;
 import com.car.admin.dto.UserBean;
-import com.car.admin.enums.ServerResponse;
+import com.car.admin.enums.ResponseServer;
 import com.car.admin.mapper.IMapperUser;
 import com.car.admin.request.UserRequest;
 import com.car.admin.service.IServiceUser;
@@ -15,17 +15,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiFunction;
 
 @Transactional(rollbackFor = Exception.class)//事务
 @Slf4j
@@ -39,7 +35,7 @@ public class IServiceUserImpl implements IServiceUser {
     //只读事务
     @Transactional(readOnly = true)
     @Override
-    public ServerResponse findUser() {
+    public ResponseServer findUser() {
 
         //1. 获取缓存中的方法，
         CacheManager instance = CacheManager.getInstance();
@@ -55,11 +51,11 @@ public class IServiceUserImpl implements IServiceUser {
             //将数据放入缓存
             instance.putObj("userList",userRequest);
 
-            return ServerResponse.success(userRequest);
+            return ResponseServer.success(userRequest);
         }
 
         //第二次缓存不为空,则直接返回缓存中的数据
-        return ServerResponse.success(userList);
+        return ResponseServer.success(userList);
 
     }
     private List<UserRequest> getUserRequests(List<UserBean> user) {

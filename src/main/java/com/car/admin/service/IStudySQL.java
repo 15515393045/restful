@@ -1,6 +1,6 @@
 package com.car.admin.service;
 
-import com.car.admin.enums.ServerResponse;
+import com.car.admin.enums.ResponseServer;
 
 /**
  * @program: demo-restful
@@ -10,7 +10,7 @@ import com.car.admin.enums.ServerResponse;
  **/
 public interface IStudySQL {
 
-    ServerResponse profitPrice();
+    ResponseServer profitPrice();
 
-    ServerResponse brandInfo();
+    ResponseServer brandInfo();
 }

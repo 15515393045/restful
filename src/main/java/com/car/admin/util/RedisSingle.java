@@ -16,7 +16,7 @@ public class RedisSingle {
         jedisPoolConfig.setTestOnBorrow(true);
         jedisPoolConfig.setTestOnReturn(true);
         //建立jedis数据池并且连接远程缓存服务器
-        jedis = new JedisPool(jedisPoolConfig,"52.83.153.116",7201);
+        jedis = new JedisPool(jedisPoolConfig,"192.168.154.128",7070,0,"root");
     }
 
     public static Jedis getResopnse(){

@@ -3,14 +3,13 @@ package com.car.admin.service;
 import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.bean.ClientLoginBean;
 import com.car.admin.dto.UserBean;
-import com.car.admin.enums.ServerResponse;
+import com.car.admin.enums.ResponseServer;
 
-import java.util.List;
 import java.util.Map;
 
 public interface IServiceUser {
 
-    ServerResponse findUser();
+    ResponseServer findUser();
 
     ResponseResult addUser(UserBean user);
 

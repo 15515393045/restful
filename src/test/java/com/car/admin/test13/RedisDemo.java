@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @program: demo-restful
  * @description:
@@ -19,6 +21,7 @@ public class RedisDemo {
 
     @Autowired
     StringRedisTemplate redisTemplate;
+
     //设置key和value
     @Test
     public void test(){
@@ -36,4 +39,8 @@ public class RedisDemo {
        redisTemplate.delete("name");
     }
 
+    @Test
+    public void test3(){
+
+    }
 }

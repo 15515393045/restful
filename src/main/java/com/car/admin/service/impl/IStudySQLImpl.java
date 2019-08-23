@@ -2,7 +2,7 @@ package com.car.admin.service.impl;
 
 import com.car.admin.bean.BrandBean;
 import com.car.admin.bean.GoodsBean;
-import com.car.admin.enums.ServerResponse;
+import com.car.admin.enums.ResponseServer;
 import com.car.admin.mapper.IStudySQLMapper;
 import com.car.admin.service.IStudySQL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,15 +23,15 @@ public class IStudySQLImpl implements IStudySQL {
     private IStudySQLMapper iStudySQLMapper;
 
     @Override
-    public ServerResponse profitPrice() {
+    public ResponseServer profitPrice() {
         List<GoodsBean> goodsBeans = iStudySQLMapper.profitPrice();
-        return ServerResponse.success(goodsBeans);
+        return ResponseServer.success(goodsBeans);
     }
 
     @Override
-    public ServerResponse brandInfo() {
+    public ResponseServer brandInfo() {
         List<BrandBean> brandBeans = iStudySQLMapper.brandInfo();
-        return ServerResponse.success(brandBeans);
+        return ResponseServer.success(brandBeans);
     }
 
 }

@@ -4,7 +4,7 @@ import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.annotation.TokenJwt;
 import com.car.admin.bean.ClientLoginBean;
 import com.car.admin.dto.UserBean;
-import com.car.admin.enums.ServerResponse;
+import com.car.admin.enums.ResponseServer;
 import com.car.admin.service.IServiceUser;
 import com.car.admin.util.CosUploadUtil;
 import com.car.admin.util.FileUtil;
@@ -42,7 +42,7 @@ public class UserController {
     * @Date: 2019/5/30 
     */
     @GetMapping("info")
-    public ServerResponse findUser(){
+    public ResponseServer findUser(){
         return serviceUser.findUser();
     }
 

@@ -1,8 +1,8 @@
 package com.car.admin.controllerStuDySql;
 
-import com.car.admin.enums.ServerResponse;
+import com.car.admin.annotation.AccessLimit;
+import com.car.admin.enums.ResponseServer;
 import com.car.admin.service.IStudySQL;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,12 +22,14 @@ public class StudySqlController {
     private IStudySQL iStudySQL;
 
     @GetMapping("profit_price")
-    public ServerResponse profitPrice(){
+    @AccessLimit(seconds = 60,maxCount = 5)
+    public ResponseServer profitPrice(){
         return iStudySQL.profitPrice();
     }
 
     @GetMapping("brand_info")
-    public ServerResponse brandInfo() {
+    @AccessLimit(seconds = 60,maxCount = 5)
+    public ResponseServer brandInfo() {
         return iStudySQL.brandInfo();
     }
 }

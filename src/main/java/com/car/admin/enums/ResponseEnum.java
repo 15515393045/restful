@@ -11,6 +11,7 @@ package com.car.admin.enums;
 public enum ResponseEnum implements IEnum{
 
 	USERINFO_ERROR(300, "账号或密码为空!"),
+	INTERFACE_ACCESSLIMIT(3004, "接口被限流了！"),
 	ERROR(-1, "ERROR"),
 	SUCCESS(200, "OK");
 
