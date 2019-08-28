@@ -28,6 +28,7 @@ public class InterfaceSafety {
     @Value("${appSecret}")
     private String appSecret;
 
+
     /**
     * @Description:  checkSum  = appKey + appSecret + currentTime + nonce + MD5
     * @Param: [appKey, checkSum, currentTime, nonce]
@@ -50,6 +51,7 @@ public class InterfaceSafety {
         if(serverTime - currentTime > expire){
             return ResponseResult.fail(3001,"请求超时！");
         }
+
 
         if(!RedisUtil.setnx(nonce,60)){
             return ResponseResult.fail(3002,"接口被攻击了！");

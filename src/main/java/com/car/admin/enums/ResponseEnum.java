@@ -12,6 +12,10 @@ public enum ResponseEnum implements IEnum{
 
 	USERINFO_ERROR(300, "账号或密码为空!"),
 	INTERFACE_ACCESSLIMIT(3004, "接口被限流了！"),
+	INTERFACE_HEADERERROR(3005, "头部信息不完整！"),
+	INTERFACE_OVERTIME(3006, "接口请求超时！"),
+	INTERFACE_SIGNERROR(3007, "签名值错误！"),
+	INTERFACE_INTERFACEATTACK(3006, "接口被攻击了！"),
 	ERROR(-1, "ERROR"),
 	SUCCESS(200, "OK");
 

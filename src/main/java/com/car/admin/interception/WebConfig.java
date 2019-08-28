@@ -40,6 +40,9 @@ public class WebConfig extends WebMvcConfigurationSupport {
         list.add("/login/user");
         list.add("/user/userLogin");
         list.add("/safety/interfaceSafety");
+        //放过测试Swagger请求的方法
+        list.add("/moerService/access");
+        list.add("/moerService/test");
         //  /**拦截所有请求放过json请求
         registry.addInterceptor(new Interception()).addPathPatterns("/**").excludePathPatterns(list);
 
@@ -48,16 +51,21 @@ public class WebConfig extends WebMvcConfigurationSupport {
     }
     
     /**
-    * @Description: 静态文件访问配置
+    * @Description:项目启动时被加载 静态文件访问配置
     * @Param: [registry] 
     * @return: void 
     * @Author: zhanyh
     * @Date: 2019/5/31 
-    */ 
+    */
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         //放过静态资源文件
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        //放过Swagger请求
+        //解决swagger无法访问
+        registry.addResourceHandler("/swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        //解决swagger的js文件无法访问
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 
         super.addResourceHandlers(registry);
     }

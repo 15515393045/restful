@@ -41,6 +41,22 @@ public class RedisDemo {
 
     @Test
     public void test3(){
+        //存入redis并且设置过期时间,单位为秒：TimeUnit.SECONDS
+        redisTemplate.opsForValue().set("name","张三",60,TimeUnit.SECONDS);
+    }
+
+    @Test
+    public void test4(){
+
+        //hasKey验证key是否存在，存在返回true,不存在返回false
+        Boolean name = redisTemplate.hasKey("name");
+
+        if(name){
+            String name1 = redisTemplate.opsForValue().get("name");
+            System.out.println(name1);
+        }else{
+            System.out.println("这条数据不存在！");
+        }
 
     }
 }

@@ -12,8 +12,10 @@ import sun.security.provider.MD5;
 public class DemoMD5 {
 
     public static void main(String[] args) {
-        String stringMD5 = MD5Util.getStringMD5("123456");
-        System.out.println(stringMD5);
+        //String stringMD5 = MD5Util.getStringMD5("123456");
+        //System.out.println(stringMD5);
+
+        System.out.println(5 * 1000 * 60);
     }
 
 }
