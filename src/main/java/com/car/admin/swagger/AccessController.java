@@ -17,7 +17,7 @@ import java.util.Map;
  **/
 @RestController
 @RequestMapping("moerService")
-@Api(value = "Access-Controller", description = "服务授权网关")
+@Api(value = "Access-Controller", description = "Swagger测试服务")
 public class AccessController {
 
 
