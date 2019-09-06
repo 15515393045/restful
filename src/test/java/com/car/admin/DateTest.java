@@ -46,16 +46,16 @@ public class DateTest {
 
         //该值根据log决定，当log以毫秒为单位时，flag=false时log以秒为单位，false=true时log以毫秒为单位
         //根据毫秒计算时分
-        System.out.println(DateUtils.formatLongToTime(20190522140852014L,false));
+        //System.out.println(DateUtils.formatLongToTime(20190522140852014L,false));
 
         //返回经过了几小时几分钟
-        System.out.println(DateUtils.formatLongToTime2(20190522140852014L,false));
+        //System.out.println(DateUtils.formatLongToTime2(20190522140852014L,false));
 
         //返回精确到毫秒的当前时间
-        System.out.println(DateUtils.getCurrentByYmdHmsSSS());
+        //System.out.println(DateUtils.getCurrentByYmdHmsSSS());
 
         //返回精确到秒的当前时间
-        System.out.println(DateUtils.getCurrentByYmdHms());
+        //System.out.println(DateUtils.getCurrentByYmdHms());
 
         /**
          * 凌晨
@@ -65,17 +65,20 @@ public class DateTest {
          *       1 返回yyyy-MM-dd 23:59:59日期
          * @return
          */
-        System.out.println(DateUtils.weeHours(beginDate,1));
+        //System.out.println(DateUtils.weeHours(beginDate,1));
 
         //获取当天最早时间
         Date startTime = DateUtils.getStartTime();
-        System.out.println(startTime);
+        //System.out.println(startTime);
 
         //获取当天最晚时间
-        System.out.println(DateUtils.getEndTime());
+        //System.out.println(DateUtils.getEndTime());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date parse = simpleDateFormat.parse("2019-8-31");
 
         //判断一个日期是否是周末
-        System.out.println(DateUtils.ifWeekend(new Date()));
+        System.out.println(DateUtils.ifWeekend(parse));
     }
 
 }

@@ -1,5 +1,6 @@
 package com.car.admin.test23;
 
+import com.car.admin.test6.User;
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
@@ -32,7 +33,7 @@ public class ImgCodeDemo {
     private static int width = 300;
     private static int height = 300;
     private static String type = "png";
-    private static String content = "曹嘉欣";
+    private static String content = "https://www.baidu.com";
 
     /**
     * @Description: 生成二维码
