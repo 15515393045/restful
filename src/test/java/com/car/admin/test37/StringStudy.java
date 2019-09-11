@@ -11,6 +11,10 @@ public class StringStudy {
 
     public static void main(String[] args) {
        /* String a = "";
+
+
+    public static void main(String[] args) {
+        String a = "";
         a = "aaa";
         a += "bbb";
         String ccc = a.concat("ccc");
