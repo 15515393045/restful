@@ -1,3 +1,4 @@
+/*
 package com.car.admin.interception;
 
 import org.springframework.context.annotation.Configuration;
@@ -9,22 +10,26 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * @program: demo-restful
  * @description: 配置类
  * @author: zhanyh
  * @create: 2019-05-31 09:48
- **/
+ **//*
+
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
 
-    /**
+    */
+/**
     * @Description: 添加拦截器实例
     * @Param: [registry]
     * @return: void
     * @Author: zhanyh
     * @Date: 2019/5/31
-    */
+    *//*
+
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
 
@@ -43,6 +48,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
         //放过测试Swagger请求的方法
         list.add("/moerService/access");
         list.add("/moerService/test");
+        list.add("/export/exportStudent");
         //  /**拦截所有请求放过json请求
         registry.addInterceptor(new Interception()).addPathPatterns("/**").excludePathPatterns(list);
 
@@ -50,13 +56,15 @@ public class WebConfig extends WebMvcConfigurationSupport {
         super.addInterceptors(registry);
     }
     
-    /**
+    */
+/**
     * @Description:项目启动时被加载 静态文件访问配置
     * @Param: [registry] 
     * @return: void 
     * @Author: zhanyh
     * @Date: 2019/5/31 
-    */
+    *//*
+
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         //放过静态资源文件
@@ -70,26 +78,31 @@ public class WebConfig extends WebMvcConfigurationSupport {
         super.addResourceHandlers(registry);
     }
 
-    /**
+    */
+/**
     * @Description: 视图配置
     * @Param: [registry]
     * @return: void
     * @Author: zhanyh
     * @Date: 2019/5/31
-    */
+    *//*
+
     @Override
     protected void configureViewResolvers(ViewResolverRegistry registry) {
 
 
+*/
 /*      jsp视图解析器，对模型视图名称的解析，即在模型视图名称添加前后缀
         如/view/welcome.jsp对应的视图名就是：welcome
-        这个类在视图解析器链中一定要定义在其他视图的后面，因为它始终会返回一个视图*/
+        这个类在视图解析器链中一定要定义在其他视图的后面，因为它始终会返回一个视图*//*
+
         registry.jsp("/WEB-INF/",".jsp");
 
         super.configureViewResolvers(registry);
     }
 
-    /**
+    */
+/**
     * @Description: 方法及参数描述
      *     addInterceptors(InterceptorRegistry registry)：添加拦截器，并且配置拦截路径等参数
      * 　　addInterceptor(new CheckFilter())：添加实例化的拦截器
@@ -98,5 +111,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
      *    多少个就可以像这样儿在后面一直添加，excludePathPatterns("/testBean/test","","",........).
      * ddResourceHandlers(ResourceHandlerRegistry registry)：静态文件访问配置
      * onfigureViewResolvers(ViewResolverRegistry registry)：试图配置
-    */
+    *//*
+
 }
+*/
