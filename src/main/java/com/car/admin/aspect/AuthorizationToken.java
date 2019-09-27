@@ -29,7 +29,7 @@ public class AuthorizationToken {
     public void pointcutMethod(){
 
     }
-
+    //获取自定义注解参数的方法一.
     @Around("pointcutMethod() && @annotation(tokenJwt)")
     public Object around(ProceedingJoinPoint pjp, TokenJwt tokenJwt){
         Object proceed = null;

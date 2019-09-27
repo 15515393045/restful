@@ -1,0 +1,4 @@
+#设置项目的运行环境以及AOP配置
+  spring:
+    profiles:
+        active:

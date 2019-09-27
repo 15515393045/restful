@@ -18,6 +18,19 @@ public class FastJsonTest {
 
     public static void main(String[] args) {
         String arr = "[{'name':'张三'},{'name':'赵六'},{'name':'王五'},{'name':'李四'}]";
+        //转换Map集合
+        List lists = JSON.parseObject(arr,List.class);
+        for (Object list : lists) {
+            JSONObject list1 = (JSONObject) list;
+            String s1 = JSON.toJSONString(list1);
+            LinkedHashMap<String,String> map = JSON.parseObject(s1, LinkedHashMap.class);
+            Iterator iterator = map.keySet().iterator();
+            while (iterator.hasNext()){
+                Object next = iterator.next();
+                String s = map.get(next);
+                System.out.println(s+"^^^^^^^^^^^^^");
+            }
+        }
 
         Object o = JSON.parseObject(arr, Object.class);
         if(o!=null){

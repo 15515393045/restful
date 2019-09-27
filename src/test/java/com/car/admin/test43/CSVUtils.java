@@ -266,7 +266,7 @@ public class CSVUtils {
      * 测试数据
      * @param args
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+   /* @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void main(String[] args) {
         List exportData = new ArrayList<Map>();
         Map row1 = new LinkedHashMap<String, String>();
@@ -274,19 +274,23 @@ public class CSVUtils {
         row1.put("2", "12");
         row1.put("3", "13");
         row1.put("4", "14");
+        row1.put("5", "14");
         exportData.add(row1);
         row1 = new LinkedHashMap<String, String>();
         row1.put("1", "21");
         row1.put("2", "22");
         row1.put("3", "23");
         row1.put("4", "24");
+        row1.put("5", "24");
         exportData.add(row1);
+        //列
         LinkedHashMap map = new LinkedHashMap();
         //设置列名
         map.put("1", "第一列名称");
         map.put("2", "第二列名称");
         map.put("3", "第三列名称");
         map.put("4", "第四列名称");
+        map.put("5", "第五列名称");
         //这个文件上传到路径，可以配置在数据库从数据库读取，这样方便一些！
         String path = "E:/";
 
@@ -304,6 +308,102 @@ public class CSVUtils {
         File file = CSVUtils.createCSVFile(exportData, map, path, fileName);
         String fileName2 = file.getName();
         System.out.println("文件名称：" + fileName2);
-    }
+    }*/
+    public static void main(String[] args) {
+        //注意Map为LinkedHashMap
+        List exportData = new ArrayList<Map>();
+        Map row1 = new LinkedHashMap<String, String>();
+        row1.put("1", "张三");
+        row1.put("2", "男");
+        row1.put("3", "19");
+        exportData.add(row1);
+        row1 = new LinkedHashMap<String, String>();
+        row1.put("1", "小红");
+        row1.put("2", "女");
+        row1.put("3", "16");
+        exportData.add(row1);
+        //列
+        LinkedHashMap map = new LinkedHashMap();
+        //设置列名
+        map.put("1", "姓名");
+        map.put("2", "性别");
+        map.put("3", "年龄");
 
+        String path = "E:/";
+
+        String s = UUID.randomUUID().toString().toUpperCase().replaceAll("-", "");
+        File aaa = CSVUtils.createCSVFile(exportData, map, path, s);
+        String name = aaa.getName();
+        System.out.println(name);
+
+
+        //列
+        LinkedHashMap columnMap = new LinkedHashMap();
+        buildColumn(columnMap);
+
+
+    }
+    //构建CSV文件的列
+    private static void buildColumn(LinkedHashMap columnMap) {
+        columnMap.put("1","主键");
+        columnMap.put("2","一级品牌ID");
+        columnMap.put("3","一级品牌名称");
+        columnMap.put("4","一级品牌编码");
+        columnMap.put("5","品牌图标路径");
+        columnMap.put("6","品牌首字母");
+        columnMap.put("7","二级品牌ID");
+        columnMap.put("8","二级品牌名称");
+        columnMap.put("9","二级品牌编码");
+        columnMap.put("10","车系ID");
+        columnMap.put("11","车系名称");
+        columnMap.put("12","车组ID");
+        columnMap.put("13","车组名称");
+        columnMap.put("14","销售车型ID");
+        columnMap.put("15","销售车型名称");
+        columnMap.put("16","车型大类");
+        columnMap.put("17","车型一级分类");
+        columnMap.put("18","车型二级分类");
+        columnMap.put("19","国别名称");
+        columnMap.put("20","国产/进口");
+        columnMap.put("21","车身结构");
+        columnMap.put("22","车门数");
+        columnMap.put("23","厂家指导价");
+        columnMap.put("24","新车购置价");
+        columnMap.put("25","配置等级");
+        columnMap.put("26","停产日期");
+        columnMap.put("27","上市年份");
+        columnMap.put("28","年款");
+        columnMap.put("29","整备质量");
+        columnMap.put("30","排量");
+        columnMap.put("31","座位数");
+        columnMap.put("32","外形尺寸");
+        columnMap.put("33","备注");
+        columnMap.put("34","发动机类型");
+        columnMap.put("35","发动机描述");
+        columnMap.put("36","发动机气门数");
+        columnMap.put("37","功率");
+        columnMap.put("38","气缸数");
+        columnMap.put("39","气缸排列形式");
+        columnMap.put("40","供油方式");
+        columnMap.put("41","燃油标号");
+        columnMap.put("42","进气形式");
+        columnMap.put("43","配气机构");
+        columnMap.put("44","燃油喷射形式");
+        columnMap.put("45","排放标准");
+        columnMap.put("46","动力类型");
+        columnMap.put("47","前轮距");
+        columnMap.put("48","后轮距");
+        columnMap.put("49","前轮胎规格");
+        columnMap.put("50","后轮胎规格");
+        columnMap.put("51","备胎规格");
+        columnMap.put("52","轴距");
+        columnMap.put("53","四驱形式");
+        columnMap.put("54","驱动形式");
+        columnMap.put("55","ABS标示");
+        columnMap.put("56","前制动器类型");
+        columnMap.put("57","后制动器类型");
+        columnMap.put("58","变速器类型");
+        columnMap.put("59","变速器档位数");
+        columnMap.put("60","理赔车型ID");
+    }
 }

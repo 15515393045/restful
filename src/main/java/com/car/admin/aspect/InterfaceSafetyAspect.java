@@ -41,7 +41,7 @@ public class InterfaceSafetyAspect {
 
     @Pointcut("execution( * com.car.admin.controllerStuDySql.*.*(..))")
     public void pointcutMethod(){}
-
+    //获取自定义注解参数的方法二
     @Around("pointcutMethod()")
     public Object run(ProceedingJoinPoint pjp){
 
