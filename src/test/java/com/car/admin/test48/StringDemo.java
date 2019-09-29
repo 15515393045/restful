@@ -12,7 +12,7 @@ import java.util.List;
  * @create: 2019-09-24 21:20
  **/
 public class StringDemo {
-
+   
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         list.add("1");

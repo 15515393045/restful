@@ -5,6 +5,7 @@ import com.car.admin.dto.User;
 
 public interface ILoginService {
 
+    public static final int NUM = 3;// NUM的值不能改变
 
     ResponseResult UserLogin(User user);
 

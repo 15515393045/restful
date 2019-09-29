@@ -2,7 +2,9 @@ package com.car.admin;
 
 import java.security.PrivateKey;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Test {
 
@@ -31,5 +33,9 @@ public class Test {
         System.out.println(((Integer) list.get(1)) - 5);
 
     }
-
+    @org.junit.Test
+    public void test(){
+        Map map = new HashMap();
+        System.out.println(1^2^3^4^5^5^4^3^2^1);
+    }
 }

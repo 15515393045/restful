@@ -58,7 +58,7 @@ public class ArrayListOrLinkedListDemo {
     * @Date: 2019/9/20 
     */
     public static long findExcuteTime(List list,String findString){
-        
+
         long startTime = System.currentTimeMillis();
         
             list.contains(findString);
