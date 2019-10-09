@@ -1,4 +1,4 @@
-package atguigu;
+package com.car.admin.test69;
 
 import java.util.Scanner;
 

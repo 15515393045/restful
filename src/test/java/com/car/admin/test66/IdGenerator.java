@@ -1,3 +1,4 @@
+
 package com.car.admin.test66;
 
 import cn.hutool.core.date.DatePattern;
@@ -12,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+
 
 /**
  * @program: demo-restful
@@ -37,10 +39,10 @@ public class IdGenerator {
         }
     }
 
-    /**
+
+   /**
      * 获取一个批次号，形如 2019071015301361000101237
      *
-
      * 数据库使用 char(25) 存储
      *
      * @param tenantId 租户ID，5 位
@@ -57,7 +59,8 @@ public class IdGenerator {
         return batchId(tenantId, module);
     }
 
-    /**
+
+/**
      * 生成的是不带-的字符串，类似于：b17f24ff026d40949c85a24f4f375d42
      *
      * @return
@@ -66,7 +69,8 @@ public class IdGenerator {
         return IdUtil.simpleUUID();
     }
 
-    /**
+
+   /**
      * 生成的UUID是带-的字符串，类似于：a5c8a5e8-df2b-4706-bea4-08d0939410e3
      *
      * @return
@@ -86,7 +90,8 @@ public class IdGenerator {
         return snowflake.nextId();
     }
 
-    /**
+
+   /**
      * 生成类似：5b9e306a4df4f8c54a39fb0c
      *
      * ObjectId 是 MongoDB 数据库的一种唯一 ID 生成策略，
@@ -98,3 +103,4 @@ public class IdGenerator {
         return ObjectId.next();
     }
 }
+
