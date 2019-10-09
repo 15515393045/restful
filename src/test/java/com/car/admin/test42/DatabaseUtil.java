@@ -22,11 +22,14 @@ public class DatabaseUtil {
     //JDBC连接Mysql   版本：5
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     //数据库地址
-    private static final String URL = "jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=utf8";
+    //private static final String URL = "jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=utf8";
+    private static final String URL = "jdbc:mysql://192.168.80.234:3306/easyepc3.0?characterEncoding=utf8&amp;useSSL=true&amp;serverTimezone=Asia/Shanghai";
     //数据密码
+    //private static final String USERNAME = "root";
     private static final String USERNAME = "root";
     //数据账户
-    private static final String PASSWORD = "coot";
+    //private static final String PASSWORD = "coot";
+    private static final String PASSWORD = "123";
     //注意FROM后面有空格用来拼接表名！
     private static final String SQL = "SELECT * FROM ";// 数据库操作
 

@@ -23,7 +23,7 @@ public class ILoginServiceImpl extends ServerBase implements ILoginService {
     //登录
     @Override
     public ResponseResult UserLogin(User user) {
-
+        int num = NUM;
         //进行为空验证
         BuildAnnotation buildAnnotation = new BuildAnnotation(user).invoke();
         String account = buildAnnotation.getAccount();

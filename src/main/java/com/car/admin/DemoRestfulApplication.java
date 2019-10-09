@@ -7,11 +7,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @MapperScan("com.car.admin.mapper")
 //启用定时任务功能
 //@EnableScheduling
+@EnableTransactionManagement//开启事务
 public class DemoRestfulApplication {
 
     public static void main(String[] args) {

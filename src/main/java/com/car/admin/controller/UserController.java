@@ -3,17 +3,22 @@ package com.car.admin.controller;
 import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.annotation.TokenJwt;
 import com.car.admin.bean.ClientLoginBean;
+import com.car.admin.bean.Jy.StuBean;
 import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ResponseServer;
 import com.car.admin.service.IServiceUser;
+import com.car.admin.service.ITheImportDataTest;
+import com.car.admin.service.impl.ITheImportDataTestImpl;
 import com.car.admin.util.CosUploadUtil;
 import com.car.admin.util.FileUtil;
+import com.car.admin.util.TheImportDemo;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
@@ -33,6 +38,9 @@ public class UserController {
 
     @Autowired
     private IServiceUser serviceUser;
+
+    @Resource(name = "importService")
+    private ITheImportDataTest theImportDataTest;
 
     /**
     * @Description: 查询 
@@ -271,4 +279,25 @@ public class UserController {
         return ResponseResult.success();
     }
 
+    /** 
+    * @Description: 导入数据 
+    * @Param: [] 
+    * @return: com.car.admin.ServerEnums.ResponseResult 
+    * @Author: zhanyh 
+    * @Date: 2019/10/8 
+    */
+    @PostMapping("importExcelData")
+    public ResponseResult importExcelData() throws IOException {
+        List<StuBean> list = TheImportDemo.importExcel("E:/Student.xls");
+        if(list == null){return ResponseResult.fail(-1,"失败！");}
+        for (StuBean stuBean : list) {
+            theImportDataTest.ImportExcelData(stuBean);
+        }
+        return ResponseResult.success();
+    }
+
+    @PostMapping("testFindUser")
+    public ResponseResult testFindUser(){
+        return theImportDataTest.testFindUser();
+    }
 }

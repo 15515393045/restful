@@ -1,5 +1,6 @@
 package com.car.admin.test35;
 
+import com.alibaba.fastjson.JSON;
 import com.car.admin.bean.UserPlus;
 import com.car.admin.mapper.UserMapper;
 import com.car.admin.test30.XiaoMi;
@@ -49,7 +50,7 @@ public class LambdaDemo {
          * @Author: zhanyh
          * @Date: 2019/9/6
          */
-        /*Map<String, List<UserPlus>> collect = userList.stream().collect(Collectors.groupingBy(UserPlus::getSex));
+        Map<String, List<UserPlus>> collect = userList.stream().collect(Collectors.groupingBy(UserPlus::getSex));
         //key为女的所有数据
         List<UserPlus> womanList = collect.get("女");
         System.out.println("===================================================");
@@ -60,7 +61,7 @@ public class LambdaDemo {
         //key为男的所有数据
         List<UserPlus> manList = collect.get("男");
         System.out.println(JSON.toJSONString(manList));
-        System.out.println("===================================================");*/
+        System.out.println("===================================================");
 
 
         /**
@@ -70,8 +71,8 @@ public class LambdaDemo {
         * @Author: zhanyh
         * @Date: 2019/9/6
         */
-      /*  List<UserPlus> collect = userList.stream().filter(a -> !a.getFamilyMemberQuantity().toString().equals("4")).collect(Collectors.toList());
-        System.out.println(gson.toJson(collect));*/
+        List<UserPlus> collect1 = userList.stream().filter(a -> !a.getFamilyMemberQuantity().toString().equals("4")).collect(Collectors.toList());
+        System.out.println(gson.toJson(collect1));
 
       /**
       * @Description: 求和
@@ -83,18 +84,18 @@ public class LambdaDemo {
       */
         //int sum = userList.stream().mapToInt(a -> a.getAge()).sum();
         //使用::
-   /*   int sum = userList.stream().mapToInt(UserPlus::getAge).sum();
-        System.out.println("所有用户的年龄总和为："+sum);*/
+      int sum = userList.stream().mapToInt(UserPlus::getAge).sum();
+        System.out.println("所有用户的年龄总和为："+sum);
 
         //大数据类型求和
         //BigDecimal求和
         //BigDecimal reduce = userList.stream().map(a -> a.getFamilyMemberQuantity()).reduce(BigDecimal.ZERO, BigDecimal::add);
         //注意：这种求和不能过滤bigDecimal对象为null的情况，否则会报空指针，这种情况，我们可以用filter方法过滤，或者重写求和方法
-   /*    BigDecimal reduce = userList.stream().map(UserPlus::getFamilyMemberQuantity).reduce(BigDecimal.ZERO, BigDecimal::add);
+       BigDecimal reduce = userList.stream().map(UserPlus::getFamilyMemberQuantity).reduce(BigDecimal.ZERO, BigDecimal::add);
         System.out.println("所有用户的家庭成员总和为："+reduce);
         //使用重写的方法
-        BigDecimal reduce = userList.stream().map(UserPlus::getFamilyMemberQuantity).reduce(BigDecimal.ZERO, BigDecimalUtil::sum);
-        System.out.println("所有用户的家庭成员总和为："+reduce);*/
+        BigDecimal reduce1 = userList.stream().map(UserPlus::getFamilyMemberQuantity).reduce(BigDecimal.ZERO, BigDecimalUtil::sum);
+        System.out.println("所有用户的家庭成员总和为："+reduce1);
 
        /** 
        * @Description: 最值
@@ -103,12 +104,12 @@ public class LambdaDemo {
        * @Author: zhanyh
        * @Date: 2019/9/6 
        */
-        /*//最小
+        //最小
         Date minDate = userList.stream().map(UserPlus::getEntryDate).min(Date::compareTo).get();
         System.out.println("最小时间："+sdf.format(minDate));
         //最大
         Date maxDate = userList.stream().map(UserPlus::getEntryDate).max(Date::compareTo).get();
-        System.out.println("最大时间："+sdf.format(maxDate));*/
+        System.out.println("最大时间："+sdf.format(maxDate));
 
         /**
          * List 转map
@@ -119,9 +120,9 @@ public class LambdaDemo {
          *  可以用 (k1,k2)->k1 来设置，如果有重复的key,则保留key1,舍弃key2
          *  根据Id查找数据
          */
-  /*      Map<Integer, UserPlus> collect = userList.stream().collect(Collectors.toMap(UserPlus::getId, a -> a, (k1, k2) -> k1));
-        System.out.println(gson.toJson(collect.get(1)));
-*/
+        Map<Integer, UserPlus> collect2 = userList.stream().collect(Collectors.toMap(UserPlus::getId, a -> a, (k1, k2) -> k1));
+        System.out.println(gson.toJson(collect2.get(1)));
+
         /**
         * @Description: 6.排序
          可通过Sort对单字段多字段排序
@@ -130,11 +131,11 @@ public class LambdaDemo {
         * @Author: zhanyh
         * @Date: 2019/9/6
         */
-       /* //排序
+        //排序
         //单字段排序，根据id排序
         userList.sort(Comparator.comparing(UserPlus::getId));
         //多字段排序，根据id，年龄排序
-        userList.sort(Comparator.comparing(UserPlus::getId).thenComparing(UserPlus::getEntryDate));*/
+        userList.sort(Comparator.comparing(UserPlus::getId).thenComparing(UserPlus::getEntryDate));
 
        /**
        * @Description: 去重
@@ -145,12 +146,12 @@ public class LambdaDemo {
        * @Date: 2019/9/6
        */
         //去重
-     /*   List<Long> idList = new ArrayList<Long>();
+        List<Long> idList = new ArrayList<Long>();
         idList.add(1L);
         idList.add(1L);
         idList.add(2L);
         List<Long> list = idList.stream().distinct().collect(Collectors.toList());
-        System.out.println(gson.toJson(list));*/
+        System.out.println(gson.toJson(list));
 
         /**
         * @Description: 获取list某个字段组装新list
@@ -160,8 +161,8 @@ public class LambdaDemo {
         * @Date: 2019/9/6
         */
         //获取list对象的某个字段组装成新list
-       /* List<Date> collect = userList.stream().map(a -> a.getEntryDate()).collect(Collectors.toList());
-        System.out.println(gson.toJson(collect));*/
+        List<Date> collect3 = userList.stream().map(a -> a.getEntryDate()).collect(Collectors.toList());
+        System.out.println(gson.toJson(collect3));
 
        /**
        * @Description:  批量设置list列表字段为同一个值
@@ -170,7 +171,7 @@ public class LambdaDemo {
        * @Author: zhanyh
        * @Date: 2019/9/6
        */
-        //userList.stream().forEach(a->a.setAge(20));
+        userList.stream().forEach(a->a.setAge(20));
         
         /** 
         * @Description: 不同实体的list拷贝
@@ -179,7 +180,7 @@ public class LambdaDemo {
         * @Author: zhanyh
         * @Date: 2019/9/6 
         */
-       // List<TimePeriodDate> timePeriodDateList1 = calendarModelVoList.stream().map(p->{TimePeriodDate e = new TimePeriodDate(); e.setStartDate(p.getBegin());e.setEndDate(p.getEnd()); return e;}).collect(Collectors.toList());
+        //List<TimePeriodDate> timePeriodDateList1 = calendarModelVoList.stream().map(p->{TimePeriodDate e = new TimePeriodDate(); e.setStartDate(p.getBegin());e.setEndDate(p.getEnd()); return e;}).collect(Collectors.toList());
 
     }
 
