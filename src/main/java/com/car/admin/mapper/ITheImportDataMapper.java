@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ITheImportDataMapper {
 
-    @Insert("insert into test_student (stuName,stuAge,stuSex) values ")
+    @Insert("insert into test_student (stuName,stuAge,stuSex) values")
     void theImportExcelData(@Param("item") List<StuBean> item);
 
     @Select("select id,stuName name,stuAge age,stuSex sex from test_student")
