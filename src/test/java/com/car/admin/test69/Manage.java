@@ -1,4 +1,4 @@
-package atguigu;
+package com.car.admin.test69;
 
 import java.util.Scanner;
 
@@ -7,8 +7,9 @@ import java.util.Scanner;
  * 1.添加学生信息\n 2.显示学生信息\n 3.删除学生信息\n 4.修改学生信息\n5.查看学生信息\n 6.排序\n7.退出
  *
  */
-
 public class Manage {
+
+
     // 主模块；
     public static void main(String[] args) {
         Integer[] studentId = new Integer[100];

@@ -34,7 +34,7 @@ public class TheImportDemo {
     public static List importExcel(String filePath) throws IOException {
         List<StuBean> list = new ArrayList<>();
         File file = new File(filePath);
-        if (!file.isFile() && file.exists()) { return null; }
+        if (!file.isFile() && !file.exists()) { return null; }
         //.是特殊字符，需要转义
         String[] split = file.getName().split("\\.");
         FileInputStream xls = null;
@@ -88,6 +88,8 @@ public class TheImportDemo {
                 list.add(studentBean);
             }
         }
+        xls.close();//关流
+        xls = null;
         return list;
     }
 }

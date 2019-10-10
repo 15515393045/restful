@@ -1,7 +1,6 @@
 package com.car.admin.test21;
 
 import com.car.admin.util.MD5Util;
-import com.qcloud.cos.utils.Md5Utils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

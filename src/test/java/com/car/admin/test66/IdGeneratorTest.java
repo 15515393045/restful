@@ -1,3 +1,4 @@
+/*
 package com.car.admin.test66;
 
 import lombok.extern.slf4j.Slf4j;
@@ -10,12 +11,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
+*/
 /**
  * @program: demo-restful
  * @description:
  * @author: zhanyh
  * @create: 2019-10-08 11:37
- **/
+ **//*
+
 public class IdGeneratorTest {
 
     public static final Logger log = LoggerFactory.getLogger(IdGeneratorTest.class);
@@ -67,3 +70,4 @@ public class IdGeneratorTest {
     }
 
 }
+*/
