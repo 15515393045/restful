@@ -1,7 +1,7 @@
 .idea/
 *.iml
 *.txt
-log/
+*.log
 target/
 .classpath
 .project
