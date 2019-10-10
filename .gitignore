@@ -1,6 +1,7 @@
 .idea/
 *.iml
-*.log
+*.txt
+log/
 target/
 .classpath
 .project
@@ -9,6 +10,5 @@ target/
 ### Example user template
 
 # IntelliJ project files
-.idea
 out
 gen
