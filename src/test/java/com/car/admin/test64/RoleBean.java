@@ -17,4 +17,23 @@ public class RoleBean implements Serializable {
     private int age;
     private String sex;
 
+    public RoleBean(String name,int age,String sex){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    RoleBean(){
+        name = "李四";
+        age = 12;
+        sex = "男";
+    }
+
+    RoleBean(String name){
+        this.name = name;
+    }
+
+    public void test(){
+        System.out.println(name+age+sex);
+    }
 }

@@ -20,7 +20,7 @@ import java.util.List;
 public class WebConfig extends WebMvcConfigurationSupport {
 
 
-/**
+    /**
     * @Description: 添加拦截器实例
     * @Param: [registry]
     * @return: void
@@ -38,10 +38,14 @@ public class WebConfig extends WebMvcConfigurationSupport {
         list.add("/user/testArea");
         list.add("/user/queryGoods");
         list.add("/user/clientLogin");
+        list.add("/user/userLogin");
+        list.add("/user/info");
+        list.add("/user/testFindUser");
+
         list.add("/study/profit_price");
         list.add("/study/brand_info");
         list.add("/login/user");
-        list.add("/user/userLogin");
+
         list.add("/safety/interfaceSafety");
         //放过测试Swagger请求的方法
         list.add("/moerService/access");
@@ -49,7 +53,6 @@ public class WebConfig extends WebMvcConfigurationSupport {
         list.add("/export/exportStudent");
         //  /**拦截所有请求放过json请求
         registry.addInterceptor(new Interception()).addPathPatterns("/**").excludePathPatterns(list);
-
 
         super.addInterceptors(registry);
     }

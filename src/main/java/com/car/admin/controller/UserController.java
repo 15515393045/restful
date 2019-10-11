@@ -8,7 +8,6 @@ import com.car.admin.dto.UserBean;
 import com.car.admin.enums.ResponseServer;
 import com.car.admin.service.IServiceUser;
 import com.car.admin.service.ITheImportDataTest;
-import com.car.admin.service.impl.ITheImportDataTestImpl;
 import com.car.admin.util.CosUploadUtil;
 import com.car.admin.util.FileUtil;
 import com.car.admin.util.TheImportDemo;
@@ -23,9 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.StandardSocketOptions;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -296,8 +292,16 @@ public class UserController {
         return ResponseResult.success();
     }
 
-    @PostMapping("testFindUser")
-    public ResponseResult testFindUser(){
+    /*
+        前台传JSON对象，后台使用对象接收不会报错,但是值映射不上，需要使用@RequestBody注解。
+        @RequestBody只接收JSON对象或JSON数组。
+     */
+    //@PostMapping("/testFindUser/{name}")  // PostMan传参：http://localhost:8080/user/testFindUser/zhangsan/12
+    //使用@PathVariable注解需要安装顺序依次传参。
+    @RequestMapping(value = "testFindUser/{name}/{id}", method = {RequestMethod.GET,RequestMethod.POST})
+    public ResponseResult testFindUser(@PathVariable("name") String aaa, @PathVariable(value = "id") Integer id){
+        System.out.println(aaa);//zhangsan
+        System.out.println(id);//12
         return theImportDataTest.testFindUser();
     }
 }

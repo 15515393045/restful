@@ -10,11 +10,10 @@ import com.car.admin.util.SystemCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.Random;
-import java.util.UUID;
 
 @Service("loginService")
+//<bean id="loginService" class="com.car.admin.service.impl.ILoginServiceImpl"></bean>
 public class ILoginServiceImpl extends ServerBase implements ILoginService {
 
     @Autowired
