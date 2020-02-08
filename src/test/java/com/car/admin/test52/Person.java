@@ -12,6 +12,7 @@ public class Person {
     private String name = "张三";
     //公有属性
     public int age = 18;
+
     //构造方法
     public Person() {
     }

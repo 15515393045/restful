@@ -182,6 +182,8 @@ public class LambdaDemo {
         */
         //List<TimePeriodDate> timePeriodDateList1 = calendarModelVoList.stream().map(p->{TimePeriodDate e = new TimePeriodDate(); e.setStartDate(p.getBegin());e.setEndDate(p.getEnd()); return e;}).collect(Collectors.toList());
 
+
+
     }
 
 
