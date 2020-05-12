@@ -27,7 +27,76 @@ public class VariantTest {
         System.out.println("实例成员变量："+instanceVar);
     }
 
+    /*public static void main(String[] args) {
+        int[] arrys = {2,5,7,8,1,10};
+        System.out.println("数组长度："+arrys.length);
+        for (int i = 0; i < arrys.length-1; i++) {
+            for (int j = 0; j < arrys.length-1-i; j++) {
+                 if (arrys[j] > arrys[j+1]){
+                     System.out.println("asd "+arrys[j] );
+                     *//*int s = arrys[j];
+                     arrys[j] = arrys[j+1];
+                     arrys[j+1] = s;*//*
 
+                     //异或换位置
+                     arrys[j] = arrys[j+1] ^ arrys[j];
+                     arrys[j+1] = arrys[j+1] ^ arrys[j];
+                     arrys[j] = arrys[j+1] ^ arrys[j];
+                 }
+            }
+        }
+        for (int i = 0; i < arrys.length; i++) {
+            int arry = arrys[i];
+            System.out.println(arry);
+        }
+    }*/
+
+    public static int[] BigBubbleSort(int[] arr){
+        // 外层循环控制比较轮数
+        for (int i = 0; i < arr.length-1; i++) {
+            // 内层循环控制每轮比较次数
+            for (int j = 0; j < arr.length-1-i; j++) {
+                // 按照从小到大排列
+                if(arr[j] > arr[j+1]){
+                    int s = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = s;
+                }
+            }
+        }
+        return arr;
+    }
+
+    public static int[] SmallBubbleSort(int[] arr){
+        // 外层循环控制比较轮数
+        for (int i = 0; i < arr.length-1; i++) {
+            // 内层循环控制每轮比较次数
+            for (int j = 0; j < arr.length-1-i; j++) {
+                // 按照从小到大排列
+                if(arr[j] < arr[j+1]){
+                    int s = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = s;
+                }
+            }
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+     /*   VariantTest variantTest = new VariantTest();
+        int[] arr = {2,5,7,1};
+        int[] ints = variantTest.bubbleSort(arr);
+        for (int i = 0; i < ints.length; i++) {
+            int anInt = ints[i];
+            System.out.println(anInt);
+        }*/
+
+        int[] sorted = SmallBubbleSort(new int[] { 2, 5, 0 });
+        for (int i : sorted) {
+            System.out.print(i + "\t");
+        }
+    }
 
 
 }
