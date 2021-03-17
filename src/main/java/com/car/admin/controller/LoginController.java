@@ -3,6 +3,8 @@ package com.car.admin.controller;
 import com.car.admin.ServerEnums.ResponseResult;
 import com.car.admin.dto.User;
 import com.car.admin.service.ILoginService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
